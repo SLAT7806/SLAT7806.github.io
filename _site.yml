@@ -25,6 +25,6 @@ output:
     number_sections: yes
 highlight: tango
 bibliography: references.bib
-csl: springer.csl
-#css: styles.css
+#csl: springer.csl
+css: styles.css
 output_dir: "."
