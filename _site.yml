@@ -2,16 +2,14 @@ name: "my-website"
 navbar:
   title: "SLAT7806"
   left:
-    - text: "HOME"
+    - text: "SLAT7806"
       href: index.html
-    - text: "About SLAT7806"
+    - text: "Important information"
       menu:
-      - text: "People | Collabs"
-        href: people.html
+      - text: "Course schedule"
+        href: Overview.html
       - text: "News"
         href: news.html
-      - text: "Tutorial stylesheet"
-        href: base.html
     - text: "Week 1"
       menu:
       - text: "Lecture"
