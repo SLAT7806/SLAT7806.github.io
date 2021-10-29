@@ -13,7 +13,7 @@
 
 <meta name="date" content="2021-10-29" />
 
-<title>Week 2: What is science?</title>
+<title>Week 2: What is research?</title>
 
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -249,7 +249,7 @@ $(document).ready(function () {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    SLAT7806: Important information
+    Overview
      
     <span class="caret"></span>
   </a>
@@ -283,6 +283,24 @@ $(document).ready(function () {
 <li>
   <a href="Wk7_CL.html">Week 7</a>
 </li>
+<li>
+  <a href="Wk8_Qual.html">Week 8</a>
+</li>
+<li>
+  <a href="Wk9_Quant.html">Week 9</a>
+</li>
+<li>
+  <a href="Wk10_Ex.html">Week 10</a>
+</li>
+<li>
+  <a href="Wk11_Writ.html">Week 11</a>
+</li>
+<li>
+  <a href="Wk12_Dis.html">Week 12</a>
+</li>
+<li>
+  <a href="Wk13_Recap.html">Week 13</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -295,7 +313,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Week 2: What is science?</h1>
+<h1 class="title toc-ignore">Week 2: What is research?</h1>
 <h4 class="date">2021-10-29</h4>
 
 </div>
@@ -305,7 +323,7 @@ $(document).ready(function () {
 <hr />
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>This section takes a philosophical or history-of-ideas approach and serves to introduce students to the scientific method. To elaborate, the section outlines why humans are need science and demonstrates with various examples that are not restricted to linguistics that humans are prone to cognitive biases, logical fallacies (e.g. argument ad personam, strawman arguments, post-hoc-ergo propter hoc, argument from popularity), and inappropriate ways of dealing with data (cherry-picking) which are likely to lead to inaccurate conclusions. For example, humans are good (maybe too good) at seeing patterns but not good at understanding randomness. This is the basis for seeing faces in random patterns like the famous face on Mars. The explanation for the human inability to see the world as it is based on evolutionary approaches to our cognitive apparatus. It will be shown using the example of Clever Hans (a horse that was thought to be able to count and perform mathematical operations) that these biases can only be avoided if one applies a methodological approach to acquiring knowledge.</p>
+<p>This section takes a philosophical or history-of-ideas approach and serves to introduce students to the important concepts related to research and the scientific method. To elaborate, the section outlines why humans are need science and demonstrates with various examples that are not restricted to linguistics that humans are prone to cognitive biases, logical fallacies (e.g. argument ad personam, strawman arguments, post-hoc-ergo propter hoc, argument from popularity), and inappropriate ways of dealing with data (cherry-picking) which are likely to lead to inaccurate conclusions. For example, humans are good (maybe too good) at seeing patterns but not good at understanding randomness. This is the basis for seeing faces in random patterns like the famous face on Mars. The explanation for the human inability to see the world as it is based on evolutionary approaches to our cognitive apparatus. It will be shown using the example of Clever Hans (a horse that was thought to be able to count and perform mathematical operations) that these biases can only be avoided if one applies a methodological approach to acquiring knowledge.</p>
 </div>
 <div id="why-do-we-need-science" class="section level1">
 <h1>Why do we need science?</h1>
@@ -421,10 +439,13 @@ $(document).ready(function () {
 <ol style="list-style-type: decimal">
 <li>How likely is it that 2 students have the same birthday?</li>
 </ol>
+<details>
+<summary>Answer</summary> In a room of just 23 people there’s a 50-50 chance of two people having the same birthday. In a room of 75 there’s a 99.9 percent chance of two people matching.
+</details>
 </div>
 <p>`</p>
 <hr />
-<p>In a room of just 23 people there’s a 50-50 chance of two people having the same birthday. In a room of 75 there’s a 99.9 percent chance of two people matching. The vast majority of people will intuitively come up with much higher numbers of students that are required to find a pair of students that have the same birthday. But why is that?</p>
+<p>The vast majority of people will intuitively come up with much higher numbers of students that are required to find a pair of students that have the same birthday. But why is that?</p>
 <p>Well, we are quite good with our numeric intuition when it comes to simple addition, subtraction, and multiplication but we are really bad when it comes to exponential growth.</p>
 <p>Let us go back to our problem: What are the chances that two students in a class of 23 have their birthday on the same day?</p>
 <p>We could list all possible couples and count all the ways they could fit but that would be really labor-intensive. In fact, it would be the same as asking <em>What’s the chance to get one or more heads in 23-coin flips?</em>.</p>
@@ -433,10 +454,6 @@ $(document).ready(function () {
 <p>If there’s a 1% chance of getting only tails (it is, in fact, <span class="math inline">\(.5^23\)</span> to be precise but let’s stick with 1 percent for the sake of simplicity here), there’s a 99% chance of having at least one head. We do not know if it’s only 1 head or 2 or 15 or 23: there is at least once head, and that is what matters here. If we subtract the probability of the negative of our problem from 1, we get the probability of the scenario that we are interested in.</p>
 <p>The same principle applies to birthdays. Instead of finding all possibilities, we find the chance that everyone is different (the <em>negative</em> scenario). We then determine the probability of the positive and have the chance of at least two people having the same birthday. It can be 1 pair, or 2 or 20, but at least two people have the same birthday.</p>
 <p>So let’s go over how to calculate the actual probability. If we have a class of 23 students, then there are 253 pairs (22+21+20+19+18+17+16+15+14+13+12+11+10+9+8+7+6+5+4+3+2+1).</p>
-<p>An easier way to calculate this is show below.</p>
-<p><span class="math display">\[\begin{equation}
-\frac{23 \cdot 22}{2} = 253
-\end{equation}\]</span></p>
 <p>The chance of 2 people having different birthdays is:</p>
 <p><span class="math display">\[\begin{equation}
 1 - \frac{1}{365} = \frac{364}{365} = .997260
@@ -496,7 +513,7 @@ The result shows the probability of 2 students having the same birthday in a cla
 <p>A similar cognitive bias underlies many ghost sightings. We are prone to see faces or human figures in random patterns. For example, the famous picture of a face on Mars or faces on toasts. Similarly, if you hear leaves turning over at night, it is likely that you think that someone is following you, as you assign noises rather to agents such as people rather than natural forces.</p>
 <p>Bruce Hood, a psychologist at Cardiff University, offers a very interesting evolutionary explanation for this phenomenon. To elaborate, imagine a professor offered you 10 AUD to wear a jumper he brought along for only a minute or so. Most people would take the offer and earn the 10 AUD. However, the professor adds that the jumper belonged to a brutal psychopathic serial killer and asks again whether you would wear the jumper. While some students would still wear the jumper, some students would not wear it given this information and even students who would, state that they would feel less comfortable. The underlying mechanism is that we assume that the jumper is not merely a piece of cloth but that it has changed somehow and acquired something by having been worn by a brutal psychopathic serial killer. While this is completely natural, it is irrational as the jumper is, in fact, merely a piece of cloth. Hood explains that people often assign value to material things which goes to say that people treat objects not only as material consisting of atoms but as things that have something like an essence or a <em>soul</em>. The underlying mechanism, he hypothesizes, adds an evolutionary advantage as people who had this belief were less likely to get close to items or people suffering from diseases and were thus less likely to get infected. This goes to show that irrational thinking or responses can be grounded in rational behavior.</p>
 <p>In addition to being generally bad with numbers and assuming agents rather than natural causes, there is another bias, called confirmation bias, which is an inbuilt hindrance to accurate knowledge. Let’s turn to another example to illustrate this. This example is called the <em>Wason Selection Task</em> after Peter Wason who came up with this test. Imaging you are presented with cards that have letters on one side and numbers on the other. Four of these cards are placed on a table before you. Card 1 is an <em>A</em>, card 2 is a <em>K</em>, card 3 is a <em>2</em>, and the fourth card is a <em>7</em>. You are told that whenever a vowel is on one side of the card, the other side is an even number. Which of these four cards do you have to turn over to determine whether this rule holds true?</p>
-<template id="5ae6d8bb-f7c9-4615-a163-4187739e9784"><style>
+<template id="5dd90407-ba5d-4b2a-bdc1-163715469ec3"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -530,14 +547,14 @@ The result shows the probability of 2 students having the same birthday in a cla
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-cad0ac9a{table-layout:auto;width:50%;}.cl-cac89d2a{font-family:'Arial';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cac89d2b{font-family:'Arial';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cac89d2c{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cac8c43a{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cac8c43b{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cac8c43c{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cac8c43d{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cac8c43e{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cac8c43f{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-cad0ac9a'>
+</style><div class="tabwid"><style>.cl-a6679e76{table-layout:auto;width:50%;}.cl-a65581a0{font-family:'Arial';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a65581a1{font-family:'Arial';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a655a856{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a655d056{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a655d057{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a655d058{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a655d059{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a655d05a{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a655d05b{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-a6679e76'>
 <caption class="Table Caption">
 </caption>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-cac8c43d"><p class="cl-cac89d2c"><span class="cl-cac89d2a">Card 1</span></p></td><td class="cl-cac8c43e"><p class="cl-cac89d2c"><span class="cl-cac89d2a">Card 2</span></p></td><td class="cl-cac8c43e"><p class="cl-cac89d2c"><span class="cl-cac89d2a">Card 3</span></p></td><td class="cl-cac8c43f"><p class="cl-cac89d2c"><span class="cl-cac89d2a">Card 4</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-cac8c43a"><p class="cl-cac89d2c"><span class="cl-cac89d2b">A</span></p></td><td class="cl-cac8c43b"><p class="cl-cac89d2c"><span class="cl-cac89d2b">K</span></p></td><td class="cl-cac8c43b"><p class="cl-cac89d2c"><span class="cl-cac89d2b">2</span></p></td><td class="cl-cac8c43c"><p class="cl-cac89d2c"><span class="cl-cac89d2b">7</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="ba8867ad-fd36-454c-8084-64b33f3b9412"></div>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-a655d059"><p class="cl-a655a856"><span class="cl-a65581a0">Card 1</span></p></td><td class="cl-a655d05a"><p class="cl-a655a856"><span class="cl-a65581a0">Card 2</span></p></td><td class="cl-a655d05a"><p class="cl-a655a856"><span class="cl-a65581a0">Card 3</span></p></td><td class="cl-a655d05b"><p class="cl-a655a856"><span class="cl-a65581a0">Card 4</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a655d056"><p class="cl-a655a856"><span class="cl-a65581a1">A</span></p></td><td class="cl-a655d057"><p class="cl-a655a856"><span class="cl-a65581a1">K</span></p></td><td class="cl-a655d057"><p class="cl-a655a856"><span class="cl-a65581a1">2</span></p></td><td class="cl-a655d058"><p class="cl-a655a856"><span class="cl-a65581a1">7</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="dc9a1375-f914-46b7-ac94-eaa135312347"></div>
 <script>
-var dest = document.getElementById("ba8867ad-fd36-454c-8084-64b33f3b9412");
-var template = document.getElementById("5ae6d8bb-f7c9-4615-a163-4187739e9784");
+var dest = document.getElementById("dc9a1375-f914-46b7-ac94-eaa135312347");
+var template = document.getElementById("5dd90407-ba5d-4b2a-bdc1-163715469ec3");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -552,7 +569,7 @@ fantome.appendChild(templateContent);
 
 <p>What have you guessed? The most common answer is cards 1 and 2 while the correct answer is actually cards 1 and 4 because the rule does not say whether there are even or odd numbers behind consonants; thus, turning over cards 2 and 3 does not help you in determining whether the rule holds true or not - in fact, cards 2 and 3 are irrelevant for the problem.</p>
 <p>Let us now turn to another example to further illustrate cognitive bias: Imaging that I have a rule in my mind and write down 3 numbers which are generated in accordance with my rule. Your task is to find out what the rule is that I have in mind. To help you finding out about that, you are allowed to propose a fourth number and I have to answer whether the proposed number is aligned with my rule or not. After proposing a number, you may then propose what the rule is and I have to tell you whether the proposed rule is the rule I had in mind or not. The numbers I write down are 1, 2 and 4. What do you think is the rule I have in mind and which number would you propose?</p>
-<template id="8fab161e-d764-4d64-bdf4-93d5dd7241e9"><style>
+<template id="a1857a1b-c9ee-4124-bd79-e2bd6f5b59d1"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -586,14 +603,14 @@ fantome.appendChild(templateContent);
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-caeaf762{table-layout:auto;width:50%;}.cl-cae24bee{font-family:'Arial';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cae24bef{font-family:'Arial';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cae272c2{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cae2c0ce{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cae2c0cf{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cae2c0d0{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cae2c0d1{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cae2c0d2{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cae2c0d3{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-caeaf762'>
+</style><div class="tabwid"><style>.cl-a6817c1a{table-layout:auto;width:50%;}.cl-a678a9c8{font-family:'Arial';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a678a9c9{font-family:'Arial';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a678d088{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a678f6b2{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a678f6b3{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a678f6b4{background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a678f6b5{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a678f6b6{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a678f6b7{background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-a6817c1a'>
 <caption class="Table Caption">
 </caption>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-cae2c0d2"><p class="cl-cae272c2"><span class="cl-cae24bee">Number 1</span></p></td><td class="cl-cae2c0d1"><p class="cl-cae272c2"><span class="cl-cae24bee">Number 2</span></p></td><td class="cl-cae2c0d1"><p class="cl-cae272c2"><span class="cl-cae24bee">Nuber 3</span></p></td><td class="cl-cae2c0d3"><p class="cl-cae272c2"><span class="cl-cae24bee">Number 4</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-cae2c0cf"><p class="cl-cae272c2"><span class="cl-cae24bef">1</span></p></td><td class="cl-cae2c0ce"><p class="cl-cae272c2"><span class="cl-cae24bef">2</span></p></td><td class="cl-cae2c0ce"><p class="cl-cae272c2"><span class="cl-cae24bef">4</span></p></td><td class="cl-cae2c0d0"><p class="cl-cae272c2"><span class="cl-cae24bef">?</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="5136c8e7-f9d4-4fb0-89c1-0153d0b02ac7"></div>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-a678f6b6"><p class="cl-a678d088"><span class="cl-a678a9c8">Number 1</span></p></td><td class="cl-a678f6b5"><p class="cl-a678d088"><span class="cl-a678a9c8">Number 2</span></p></td><td class="cl-a678f6b5"><p class="cl-a678d088"><span class="cl-a678a9c8">Nuber 3</span></p></td><td class="cl-a678f6b7"><p class="cl-a678d088"><span class="cl-a678a9c8">Number 4</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a678f6b3"><p class="cl-a678d088"><span class="cl-a678a9c9">1</span></p></td><td class="cl-a678f6b2"><p class="cl-a678d088"><span class="cl-a678a9c9">2</span></p></td><td class="cl-a678f6b2"><p class="cl-a678d088"><span class="cl-a678a9c9">4</span></p></td><td class="cl-a678f6b4"><p class="cl-a678d088"><span class="cl-a678a9c9">?</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="34837da2-f5fc-4d2e-92f9-681497ae5966"></div>
 <script>
-var dest = document.getElementById("5136c8e7-f9d4-4fb0-89c1-0153d0b02ac7");
-var template = document.getElementById("8fab161e-d764-4d64-bdf4-93d5dd7241e9");
+var dest = document.getElementById("34837da2-f5fc-4d2e-92f9-681497ae5966");
+var template = document.getElementById("a1857a1b-c9ee-4124-bd79-e2bd6f5b59d1");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -656,7 +673,7 @@ However, the parts of this external reality to which we have access are largely 
 <p>Probably the picture of Margaret Thatcher on the right strikes you as somewhat odd but have a look at what happens if we turn the pictures around.</p>
 <p><img src="Wk2_Science_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Most people are somewhat shocked how distorted the picture on the right really is. This is because our brain compensates the skewness of the Margaret Thatcher’s face in the right picture while it does not <em>normalize</em> the picture when shown in the way that we normally see people. The interesting point is that our brain automatically adjusts the picture of a face based on out previous experience with faces. One could say that our perception - especially of human faces, autocorrects aspects of our visual input based on patterns and expectations build from previous input.</p>
-<p><img src="https://slcladal.github.io/images/face.png" width="35%" style="float:right; padding:15px" /></p>
+<p><img src="https://slcladal.github.io/images/face.png" width="25%" style="float:right; padding:15px" /></p>
 <p>The autocorrection effect also plays on another bias which has to do with face recognition. Because reading and interpreting faces is and has been so important and informative for us, we are prone not only to see or find patterns in randomness but more specifically we are prone to seeing faces or constructing faces from ambiguous input. To see what I mean, have a look at the picture below.</p>
 <p>Although the picture does not show a face, we interpret the various elements in the picture to form - in combination - a face. Of course, the face is not emerging from a merely chaotic assemblies of elements but the elements in the picture are arranged to create that effect. And although the arrangement is deliberate in the picture above, it still goes to show that humans are particularly available for suggestive, ambiguous input to be interpreted as human faces. One reason for this is that the context, here understood as the combinatorial effect of various unrelated elements, influences our perception and interpretation of visual input.</p>
 <p>Let me clarify this with another example. What symbol do you see in the red circle?</p>
@@ -701,6 +718,18 @@ However, the parts of this external reality to which we have access are largely 
 <div id="what-is-science" class="section level1">
 <h1>What is science?</h1>
 <p>This chapter elaborates further on basic concepts of science but focuses less on the philosophical underpinning and more strictly on the craftsmanship aspect. Thus, it introduces basic concepts science (e.g. empirical versus pure science, falsification, inter-subjectivity, internal and external validity) and the scientific method.</p>
+<div id="popper-falsification-and-scientific-progress" class="section level2 unnumbered">
+<h2>Popper, falsification, and scientific progress</h2>
+<p><img src="https://slcladal.github.io/images/popper.jpg" width="30%" style="float:right; padding:10px" /></p>
+<p>Sir Karl Raimund Popper was a Austrian-British academic and public figure who vigorously defended liberal democracy and the principles of social criticism that he believed made a flourishing open society possible. In the context of scientific thinking, Popper is important because he is arguably the most important philosopher of science - probably best known for his realization that nothing can be proven in the empirical sciences, but that hypotheses can and need to be falsified. This means that in contrast to the formal sciences, where statements can be proven once certain axioms are accepted, any knowledge that is produced by the empirical sciences is always, and has to be preliminary which implies that the empirical sciences represent an ongoing process.</p>
+<blockquote>
+<p>What does this mean and why can empirical sciences not prove?</p>
+</blockquote>
+<p>Well, logically speaking, no number of observations of something can confirm a scientific theory. However, a single counterexample can be enough to show that a theory is false. Imagine someone states that all swans are white, any number of white swans cannot prove that that statement is correct, but a single black swan immediately falsifies the statement.</p>
+<p>It is important to note here that to say that something is <em>falsifiable</em> does not mean that it is false or wrong or fake: it simply means that it can, in principle, be shown to be false by observation or by experiment.</p>
+<p>According to Popper, falsifiability is the defining criterion of what is and what is not science: a theory can only be considered scientific if, and only if, it is falsifiable. This led him to refute claims that both psychoanalysis and Marxism are scientific because these theories are not falsifiable.</p>
+<p>There is an apparent progress of scientific knowledge, meaning that our understanding of the universe appears to be improving over time. In Popper’s view, this advance of scientific knowledge is an evolutionary process: competing theories are systematically subjected to attempts at falsification which leads to error elimination - so that falsification performs similar function for science that natural selection performs for biological evolution. Theories that better survive the process of refutation are not more true, but rather, more <em>fit</em>. Consequently, just as a species’ biological fitness does not ensure continued survival, neither does rigorous testing protect a scientific theory from refutation in the future. Yet, as it appears that the engine of biological evolution has, over many generations, produced adaptive traits equipped to deal with more and more complex problems of survival, likewise, the evolution of theories through the scientific method may progress. For Popper, it is in the interplay between the tentative theories (conjectures) and error elimination (refutation) that scientific knowledge advances - in a process very much akin to the interplay between genetic variation and natural selection.</p>
+</div>
 <div id="clever-hans" class="section level2 unnumbered">
 <h2>Clever Hans</h2>
 <p>So, what is science? Well, let’s start with the example of <em>Clever Hans</em> to illustrate how science is applied to phenomena.</p>
@@ -727,21 +756,9 @@ However, the parts of this external reality to which we have access are largely 
 <li><p><strong>Formal Science(s)</strong> examine systems of abstract constructs using axiomatically set or derived rules (for example, mathematics, formal logic, theoretical computer science, system theory, chaos theory, formal linguistics, …).</p></li>
 </ul>
 </div>
-<div id="popper-falsification-and-scientific-progress" class="section level2 unnumbered">
-<h2>Popper, falsification, and scientific progress</h2>
-<p><img src="https://slcladal.github.io/images/popper.jpg" width="30%" style="float:right; padding:10px" /></p>
-<p>Sir Karl Raimund Popper was a Austrian-British academic and public figure who vigorously defended liberal democracy and the principles of social criticism that he believed made a flourishing open society possible. In the context of scientific thinking, Popper is important because he is arguably the most important philosopher of science - probably best known for his realization that nothing can be proven in the empirical sciences, but that hypotheses can and need to be falsified. This means that in contrast to the formal sciences, where statements can be proven once certain axioms are accepted, any knowledge that is produced by the empirical sciences is always, and has to be preliminary which implies that the empirical sciences represent an ongoing process.</p>
-<blockquote>
-<p>What does this mean and why can empirical sciences not prove?</p>
-</blockquote>
-<p>Well, logically speaking, no number of observations of something can confirm a scientific theory. However, a single counterexample can be enough to show that a theory is false. Imagine someone states that all swans are white, any number of white swans cannot prove that that statement is correct, but a single black swan immediately falsifies the statement.</p>
-<p>It is important to note here that to say that something is <em>falsifiable</em> does not mean that it is false or wrong or fake: it simply means that it can, in principle, be shown to be false by observation or by experiment.</p>
-<p>According to Popper, falsifiability is the defining criterion of what is and what is not science: a theory can only be considered scientific if, and only if, it is falsifiable. This led him to refute claims that both psychoanalysis and Marxism are scientific because these theories are not falsifiable.</p>
-<p>There is an apparent progress of scientific knowledge, meaning that our understanding of the universe appears to be improving over time. In Popper’s view, this advance of scientific knowledge is an evolutionary process: competing theories are systematically subjected to attempts at falsification which leads to error elimination - so that falsification performs similar function for science that natural selection performs for biological evolution. Theories that better survive the process of refutation are not more true, but rather, more <em>fit</em>. Consequently, just as a species’ biological fitness does not ensure continued survival, neither does rigorous testing protect a scientific theory from refutation in the future. Yet, as it appears that the engine of biological evolution has, over many generations, produced adaptive traits equipped to deal with more and more complex problems of survival, likewise, the evolution of theories through the scientific method may progress. For Popper, it is in the interplay between the tentative theories (conjectures) and error elimination (refutation) that scientific knowledge advances - in a process very much akin to the interplay between genetic variation and natural selection.</p>
-</div>
-<div id="what-is-empirical-linguistics" class="section level2 unnumbered">
-<h2>What is (empirical) Linguistics?</h2>
-<p>Linguistics is commonly defined as the <em>the scientific study of language or individual languages</em> and linguists try to uncover the systems behind language, to describe these systems, and to theoretically explain and model them <span class="citation">(Evans and Green <a href="#ref-evans2006cognitive" role="doc-biblioref">2006</a>)</span>. Linguistics who work empirically conduct research on linguistic phenomena based on observations of reality. As such, (empirical) linguistics is descriptive rather than prescriptive in nature.</p>
+<div id="what-is-empirical-research" class="section level2 unnumbered">
+<h2>What is (empirical) research?</h2>
+<p>Let’s take linguistics as an example. Linguistics is commonly defined as the <em>the scientific study of language or individual languages</em> and linguists try to uncover the systems behind language, to describe these systems, and to theoretically explain and model them <span class="citation">(Evans and Green <a href="#ref-evans2006cognitive" role="doc-biblioref">2006</a>)</span>. Linguistics who work empirically conduct research on linguistic phenomena based on observations of reality. As such, (empirical) linguistics is descriptive rather than prescriptive in nature.</p>
 <blockquote>
 <p>How does the scientific method work in linguistics?</p>
 </blockquote>
@@ -780,20 +797,20 @@ However, the parts of this external reality to which we have access are largely 
 </div>
 <p>`</p>
 <hr />
-<p>We will stop here with our introduction to quantitative reasoning. If you are interested in learning more, we highly recommend that you continue with <a href="https://slcladal.github.io/basicquant.html">our tutorial on basic concepts in quantitative research</a>.</p>
+<p>We will stop here.</p>
 </div>
 </div>
 <div id="citation-session-info" class="section level1 unnumbered">
 <h1>Citation &amp; Session Info</h1>
-<p>Schweinberger, Martin. 2020. <em>Introduction to Quantitative Reasoning</em>. Brisbane: The University of Queensland. url: <a href="https://slcladal.github.io/introquant.html" class="uri">https://slcladal.github.io/introquant.html</a> (Version 2020.12.08).</p>
-<pre><code>@manual{schweinberger2020introqant,
+<p>Schweinberger, Martin. 2021. <em>Introduction to Quantitative Reasoning</em>. Brisbane: The University of Queensland. url: <a href="https://slcladal.github.io/introquant.html" class="uri">https://slcladal.github.io/introquant.html</a> (Version 2021.10.29).</p>
+<pre><code>@manual{schweinberger2021introqant,
   author = {Schweinberger, Martin},
   title = {Introduction to Quantitative Reasoning},
   note = {https://slcladal.github.io/introquant.html},
-  year = {2020},
+  year = {2021},
   organization = &quot;The University of Queensland, School of Languages and Cultures},
   address = {Brisbane},
-  edition = {2020/12/08}
+  edition = {2021.10.29}
 }</code></pre>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>## R version 4.1.1 (2021-08-10)

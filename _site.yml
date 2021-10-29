@@ -2,7 +2,7 @@ name: "my-website"
 navbar:
   title: "SLAT7806: Research Methods"
   left:
-    - text: "SLAT7806: Important information"
+    - text: "Overview"
       menu:
       - text: "Course schedule"
         href: Overview.html
@@ -22,6 +22,18 @@ navbar:
       href: Wk6_Ethics.html
     - text: "Week 7"
       href: Wk7_CL.html
+    - text: "Week 8"
+      href: Wk8_Qual.html
+    - text: "Week 9"
+      href: Wk9_Quant.html
+    - text: "Week 10"
+      href: Wk10_Ex.html
+    - text: "Week 11"
+      href: Wk11_Writ.html
+    - text: "Week 12"
+      href: Wk12_Dis.html
+    - text: "Week 13"
+      href: Wk13_Recap.html
 output: 
   html_document:
     toc: true

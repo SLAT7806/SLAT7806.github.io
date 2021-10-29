@@ -1,5 +1,5 @@
 ---
-title: "Week 2: What is science?"
+title: "Week 2: What is research?"
 author: ""
 date: "`r format(Sys.time(), '%Y-%m-%d')`"
 output:
@@ -17,7 +17,7 @@ knitr::include_graphics("https://slcladal.github.io/images/uq1.jpg")
 
 # Introduction
 
-This section takes a philosophical or history-of-ideas approach and serves to introduce students to the scientific method. To elaborate, the section outlines why humans are need science and demonstrates with various examples that are not restricted to linguistics that humans are prone to cognitive biases, logical fallacies (e.g. argument ad personam, strawman arguments, post-hoc-ergo propter hoc, argument from popularity), and inappropriate ways of dealing with data (cherry-picking) which are likely to lead to inaccurate conclusions. For example, humans are good (maybe too good) at seeing patterns but not good at understanding randomness. This is the basis for seeing faces in random patterns like the famous face on Mars. The explanation for the human inability to see the world as it is based on evolutionary approaches to our cognitive apparatus. It will be shown using the example of Clever Hans (a horse that was thought to be able to count and perform mathematical operations) that these biases can only be avoided if one applies a methodological approach to acquiring knowledge.
+This section takes a philosophical or history-of-ideas approach and serves to introduce students to the important concepts related to research and the scientific method. To elaborate, the section outlines why humans are need science and demonstrates with various examples that are not restricted to linguistics that humans are prone to cognitive biases, logical fallacies (e.g. argument ad personam, strawman arguments, post-hoc-ergo propter hoc, argument from popularity), and inappropriate ways of dealing with data (cherry-picking) which are likely to lead to inaccurate conclusions. For example, humans are good (maybe too good) at seeing patterns but not good at understanding randomness. This is the basis for seeing faces in random patterns like the famous face on Mars. The explanation for the human inability to see the world as it is based on evolutionary approaches to our cognitive apparatus. It will be shown using the example of Clever Hans (a horse that was thought to be able to count and perform mathematical operations) that these biases can only be avoided if one applies a methodological approach to acquiring knowledge.
 
 # Why do we need science?
 
@@ -129,12 +129,18 @@ Another interesting way to show that we are not good with numbers relates to the
 
 1. How likely is it that 2 students have the same birthday?
 
+<details>
+  <summary>Answer</summary>
+  In a room of just 23 people there’s a 50-50 chance of two people having the same birthday. In a room of 75 there’s a 99.9 percent chance of two people matching. 
+</details>
+
+
 </div>`
 
 ***
 
 
-In a room of just 23 people there’s a 50-50 chance of two people having the same birthday. In a room of 75 there’s a 99.9 percent chance of two people matching. The vast majority of people will intuitively come up with much higher numbers of students that are required to find a pair of students that have the same birthday. But why is that?
+The vast majority of people will intuitively come up with much higher numbers of students that are required to find a pair of students that have the same birthday. But why is that?
 
 Well, we are quite good with our numeric intuition when it comes to simple addition, subtraction, and multiplication but we are really bad when it comes to exponential growth. 
 
@@ -151,12 +157,6 @@ If there's a 1% chance of getting only tails (it is, in fact, $.5^23$ to be prec
 The same principle applies to birthdays. Instead of finding all possibilities, we find the chance that everyone is different (the *negative* scenario). We then determine the probability of the positive and have the chance of at least two people having the same birthday. It can be 1 pair, or 2 or 20, but at least two people have the same birthday.
 
 So let's go over how to calculate the actual probability. If we have a class of 23 students, then there are 253 pairs (22+21+20+19+18+17+16+15+14+13+12+11+10+9+8+7+6+5+4+3+2+1).
-
-An easier way to calculate this is show below.
-
-\begin{equation}
-\frac{23 \cdot 22}{2} = 253
-\end{equation}
 
 The chance of 2 people having different birthdays is:
 
@@ -357,7 +357,7 @@ ggdraw() + draw_image("https://slcladal.github.io/images/thatcher3.png", scale =
 
 Most people are somewhat shocked how distorted the picture on the right really is. This is because our brain compensates the skewness of the Margaret Thatcher's face in the right picture while it does not *normalize* the picture when shown in the way that we normally see people. The interesting point is that our brain automatically adjusts the picture of a face based on out previous experience with faces. One could say that our perception - especially of human faces, autocorrects aspects of our visual input based on patterns and expectations build from previous input.
 
-```{r face, echo=FALSE, out.width= "35%", out.extra='style="float:right; padding:15px"'}
+```{r face, echo=FALSE, out.width= "25%", out.extra='style="float:right; padding:15px"'}
 knitr::include_graphics("https://slcladal.github.io/images/face.png")
 ```
 
@@ -430,6 +430,27 @@ nocite: |
 This chapter elaborates further on basic concepts of science but focuses less on the philosophical underpinning and more strictly on the craftsmanship aspect. Thus, it introduces basic concepts science (e.g. empirical versus pure science, falsification, inter-subjectivity, internal and external validity) and the scientific method.
 
 
+## Popper, falsification, and scientific progress{-}
+
+```{r popper, echo=FALSE, out.width= "30%", out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("https://slcladal.github.io/images/popper.jpg")
+```
+
+Sir Karl Raimund Popper was a Austrian-British academic and public figure who vigorously defended liberal democracy and the principles of social criticism that he believed made a flourishing open society possible. In the context of scientific thinking, Popper is important because he is arguably the most important philosopher of science - probably best known for his realization that nothing can be proven in the empirical sciences, but that hypotheses can and need to be falsified. This means that in contrast to the formal sciences, where statements can be proven once certain axioms are accepted, any knowledge that is produced by the empirical sciences is always, and has to be preliminary which implies that the empirical sciences represent an ongoing process.
+
+>
+>What does this mean and why can empirical sciences not prove?
+>
+
+Well, logically speaking, no number of observations of something can confirm a scientific theory. However, a single counterexample can be enough to show that a theory is false. Imagine someone states that all swans are white, any number of white swans cannot prove that that statement is correct, but a single black swan immediately falsifies the statement.
+
+It is important to note here that to say that something is *falsifiable* does not mean that it is false or wrong or fake: it simply means that it can, in principle, be shown to be false by observation or by experiment. 
+
+According to Popper, falsifiability is the defining criterion of what is and what is not science: a theory can only be considered scientific if, and only if, it is falsifiable. This led him to refute claims that  both psychoanalysis and  Marxism are scientific because these theories are not falsifiable.
+
+There is an apparent progress of scientific knowledge, meaning that our understanding of the universe appears to be improving over time. In Popper's view, this advance of scientific knowledge is an evolutionary process: competing theories are systematically subjected to attempts at falsification which leads to error elimination - so that falsification performs similar function for science that natural selection performs for biological evolution. Theories that better survive the process of refutation are not more true, but rather, more *fit*. Consequently, just as a species' biological fitness does not ensure continued survival, neither does rigorous testing protect a scientific theory from refutation in the future. Yet, as it appears that the engine of biological evolution has, over many generations, produced adaptive traits equipped to deal with more and more complex problems of survival, likewise, the evolution of theories through the scientific method may progress. For Popper, it is in the interplay between the tentative theories (conjectures) and error elimination (refutation) that scientific knowledge advances - in a process very much akin to the interplay between genetic variation and natural selection.
+
+
 
 ## Clever Hans{-}
 
@@ -469,30 +490,9 @@ examine phenomena of reality through the scientific method (cf.), with the aim o
 * **Formal Science(s)**
 examine systems of abstract constructs using axiomatically set or derived rules (for example, mathematics, formal logic, theoretical computer science, system theory, chaos theory, formal linguistics, ...).
 
-## Popper, falsification, and scientific progress{-}
+## What is (empirical) research?{-}
 
-```{r popper, echo=FALSE, out.width= "30%", out.extra='style="float:right; padding:10px"'}
-knitr::include_graphics("https://slcladal.github.io/images/popper.jpg")
-```
-
-Sir Karl Raimund Popper was a Austrian-British academic and public figure who vigorously defended liberal democracy and the principles of social criticism that he believed made a flourishing open society possible. In the context of scientific thinking, Popper is important because he is arguably the most important philosopher of science - probably best known for his realization that nothing can be proven in the empirical sciences, but that hypotheses can and need to be falsified. This means that in contrast to the formal sciences, where statements can be proven once certain axioms are accepted, any knowledge that is produced by the empirical sciences is always, and has to be preliminary which implies that the empirical sciences represent an ongoing process.
-
->
->What does this mean and why can empirical sciences not prove?
->
-
-Well, logically speaking, no number of observations of something can confirm a scientific theory. However, a single counterexample can be enough to show that a theory is false. Imagine someone states that all swans are white, any number of white swans cannot prove that that statement is correct, but a single black swan immediately falsifies the statement.
-
-It is important to note here that to say that something is *falsifiable* does not mean that it is false or wrong or fake: it simply means that it can, in principle, be shown to be false by observation or by experiment. 
-
-According to Popper, falsifiability is the defining criterion of what is and what is not science: a theory can only be considered scientific if, and only if, it is falsifiable. This led him to refute claims that  both psychoanalysis and  Marxism are scientific because these theories are not falsifiable.
-
-There is an apparent progress of scientific knowledge, meaning that our understanding of the universe appears to be improving over time. In Popper's view, this advance of scientific knowledge is an evolutionary process: competing theories are systematically subjected to attempts at falsification which leads to error elimination - so that falsification performs similar function for science that natural selection performs for biological evolution. Theories that better survive the process of refutation are not more true, but rather, more *fit*. Consequently, just as a species' biological fitness does not ensure continued survival, neither does rigorous testing protect a scientific theory from refutation in the future. Yet, as it appears that the engine of biological evolution has, over many generations, produced adaptive traits equipped to deal with more and more complex problems of survival, likewise, the evolution of theories through the scientific method may progress. For Popper, it is in the interplay between the tentative theories (conjectures) and error elimination (refutation) that scientific knowledge advances - in a process very much akin to the interplay between genetic variation and natural selection.
-
-
-## What is (empirical) Linguistics?{-}
-
-Linguistics is commonly defined as the *the scientific study of language or individual languages* and linguists try to uncover the systems behind language, to describe these systems, and to theoretically explain and model them [@evans2006cognitive]. Linguistics who work empirically conduct research on linguistic phenomena based on observations of reality. As such, (empirical) linguistics is descriptive rather than prescriptive in nature.
+Let's take linguistics as an example. Linguistics is commonly defined as the *the scientific study of language or individual languages* and linguists try to uncover the systems behind language, to describe these systems, and to theoretically explain and model them [@evans2006cognitive]. Linguistics who work empirically conduct research on linguistic phenomena based on observations of reality. As such, (empirical) linguistics is descriptive rather than prescriptive in nature.
 
 >
 >How does the scientific method work in linguistics?
@@ -537,22 +537,22 @@ A slightly more elaborate depiction of this scenario with the equivalent steps i
 
 ***
 
-We will stop here with our introduction to quantitative reasoning. If you are interested in learning more, we highly recommend that you continue with [our tutorial on basic concepts in quantitative research](https://slcladal.github.io/basicquant.html).
+We will stop here.
 
 
 # Citation & Session Info {-}
 
-Schweinberger, Martin. 2020. *Introduction to Quantitative Reasoning*. Brisbane: The University of Queensland. url: https://slcladal.github.io/introquant.html (Version 2020.12.08).
+Schweinberger, Martin. `r format(Sys.time(), '%Y')`. *Introduction to Quantitative Reasoning*. Brisbane: The University of Queensland. url: https://slcladal.github.io/introquant.html (Version `r format(Sys.time(), '%Y.%m.%d')`).
 
 ```
-@manual{schweinberger2020introqant,
+@manual{schweinberger`r format(Sys.time(), '%Y')`introqant,
   author = {Schweinberger, Martin},
   title = {Introduction to Quantitative Reasoning},
   note = {https://slcladal.github.io/introquant.html},
-  year = {2020},
+  year = {`r format(Sys.time(), '%Y')`},
   organization = "The University of Queensland, School of Languages and Cultures},
   address = {Brisbane},
-  edition = {2020/12/08}
+  edition = {`r format(Sys.time(), '%Y.%m.%d')`}
 }
 ```
 
