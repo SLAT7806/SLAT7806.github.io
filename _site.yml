@@ -5,7 +5,7 @@ navbar:
     - text: "Overview"
       menu:
       - text: "Course schedule"
-        href: Overview.html
+        href: index.html
       - text: "News"
         href: news.html
     - text: "Week 1"

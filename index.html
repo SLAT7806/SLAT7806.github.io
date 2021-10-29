@@ -7,28 +7,33 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-<link rel="icon" 
-      type="image/x-icon" 
-      href="favicon.ico" />
 
 
-<meta name="author" content="" />
+<meta name="author" content="Martin Schweinberger" />
 
-<meta name="date" content="2021-10-24" />
+<meta name="date" content="2021-10-29" />
 
 <title>SLAT7806: Research Methods</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="site_libs/tabwid-1.0.0/tabwid.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -40,11 +45,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -57,32 +57,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -93,10 +67,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -113,40 +83,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -174,7 +117,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -186,7 +129,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -197,10 +140,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -212,7 +168,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -265,8 +220,7 @@ $(document).ready(function () {
 
 
 
-<!-- added by SKC for LADAL Style -->
-<link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
@@ -276,20 +230,8 @@ $(document).ready(function () {
 
 
 
+
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  
-  <!-- Added by SKC - LADAL image and thicker top with   -->
-  <div class="container-fluid navbar-top" >
-    <a href="index.html"> <!-- Make entire top row and text clickable home link  -->
-        <div class="row">
-            <div class="navbar-brand col-md-12">
-              <img src="ladal_icon_cas_tran_white_trimed.png" class="navbar-icon" alt="SLAT7806"/>
-              <span class="navbar-title-note navbar-collapse collapse" >Language Technology and Data Analysis Laboratory</span>
-            </div>
-        </div>
-    </a>
-  </div>
-  
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -297,39 +239,63 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!-- SKC removed  navbar brand -->
+      <a class="navbar-brand" href="index.html">SLAT7806: Research Methods</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">SLAT7806</a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Important information
+    Overview
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="Overview.html">Course schedule</a>
+      <a href="index.html">Course schedule</a>
     </li>
     <li>
       <a href="news.html">News</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Week 1
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="news.html">Lecture</a>
-    </li>
-  </ul>
+<li>
+  <a href="Wk1_Intro.html">Week 1</a>
+</li>
+<li>
+  <a href="Wk2_Science.html">Week 2</a>
+</li>
+<li>
+  <a href="Wk3_Basics.html">Week 3</a>
+</li>
+<li>
+  <a href="Wk4_Design.html">Week 4</a>
+</li>
+<li>
+  <a href="Wk5_Lit.htm">Week 5</a>
+</li>
+<li>
+  <a href="Wk6_Ethics.html">Week 6</a>
+</li>
+<li>
+  <a href="Wk7_CL.html">Week 7</a>
+</li>
+<li>
+  <a href="Wk8_Qual.html">Week 8</a>
+</li>
+<li>
+  <a href="Wk9_Quant.html">Week 9</a>
+</li>
+<li>
+  <a href="Wk10_Ex.html">Week 10</a>
+</li>
+<li>
+  <a href="Wk11_Writ.html">Week 11</a>
+</li>
+<li>
+  <a href="Wk12_Dis.html">Week 12</a>
+</li>
+<li>
+  <a href="Wk13_Recap.html">Week 13</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -339,117 +305,253 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
 <h1 class="title toc-ignore">SLAT7806: Research Methods</h1>
-<h4 class="date">2021-10-24</h4>
+<h4 class="author">Martin Schweinberger</h4>
+<h4 class="date">2021-10-29</h4>
 
 </div>
 
 
 <p><img src="https://slcladal.github.io/images/uq1.jpg" width="100%" /></p>
-<hr />
-<div id="welcome" class="section level1 unnumbered">
-<h1>WELCOME</h1>
-<p><img src="https://slcladal.github.io/images/slc.png" width="50%" style="float:right; padding:10px" /></p>
-<p>Welcome to the website of the <em>Language Technology and Data Analysis Laboratory (LADAL)</em>. The LADAL (pronouced <em>lah’dahl</em>) is a school-based, collaborative support infrastructure for digital and computational humanities established and maintained since 2019 by the <a href="https://languages-cultures.uq.edu.au/">School of Languages and Cultures</a> at the <a href="https://www.uq.edu.au/">University of Queensland</a>. The LADAL assists with data processing, visualization, and analysis and offers guidance on matters relating to language technology and digital research tools.</p>
-<hr />
-<div class="warning" style="padding:0.1em; background-color:#f2f2f2; color:#51247a">
-<span>
-<p style="margin-top:1em; text-align:center">
-Since going online January 1, 2021, LADAL has received more than <strong>100,000 unique page views</strong> of more than <strong>60,000 users</strong> in more than <strong>85,000 sessions</strong>! The majority of LADAL users access the LADAL website from the USA (app. 50%), Great Britain (app. 15%), Germany (app. 3%), and China (app. 2.5%). The highest number of unique users was April 27, 2021 with 824 unique users.
-</p>
-<p style="margin-left:1em;">
-</p>
-<p></span></p>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>This is a postgraduate-level course on academic research methods in language and culture studies, with a particular focus on the areas of language use, learning, and teaching. The course covers a wide variety of issues and topics raised in current and seminal works on language acquisition across ages, in different communities, in and out of the classroom context. It is designed to familiarize the students with a range of qualitative and quantitative research techniques and ethical research practices. The students are also introduced to the core steps of conceptualizing, designing, undertaking, and presenting (orally and in writing) a research project, which are the essential skills for postgraduate students and academics.</p>
+<p>Weekly learning activities consist of a one-hour online lecture (available via the course Blackboard site) and a two-hour tutorial (conducted either in class or via zoom). The online lecture is jointly offered for two courses: SLAT7806 and LTCS6000 (Honours and MACTI/MAJIT students). Throughout the semester you will be expected to contribute substantially and consistently to our tutorial activities and discussions of research approaches, methodologies, drawing on your own ideas and experiences. Please make sure that you keep up with the course content by reviewing the online materials made available on Blackboard (e.g., lecture podcasts, lecture and tutorial slides, readings) and completing the assessments.</p>
+<p>There may be minor changes to the learning activities schedule due to public holidays. Students will be advised on the date and timing of make-up classes in advance on Blackboard.</p>
+<p><strong>Course Aims</strong></p>
+<p>The course aims to introduce research methodology in language and culture studies (with a particular interest in language). It will present the fundamental skills needed to plan and carry out various types of postgraduate research, ranging from critical reading, to structuring course papers and dissertation, to basic practical data collection and analysis tools and techniques. Topics examined include the nature and types of research, research quality and planning, honesty and ethics in research, library and database searches, developing a research topic and literature review, preparing a research proposal, and critical reading and writing skills. Course assessments will provide the opportunity to apply these skills in relevant research tasks.</p>
+<p><strong>Assumed Background</strong></p>
+<p>This course assumes no previous knowledge of research methods, but some knowledge of general and applied linguistics will be useful.</p>
+<p><strong>Course Changes in Response to Feedback</strong></p>
+<p>Weekly Online Tasks, to be completed in the first half of the semester via Blackboard, start only in week 3 to prevent disadvantages to students who sign up for the course after the orientation period.</p>
+<p>The maximum time allotted for completion of each weekly task has been increased from 1 hour to 1 hour and 15 minutes.</p>
 </div>
-<hr />
-<hr />
-<p><img src="https://slcladal.github.io/images/goals2.jpg" width="50%" style="float:right; padding:15px" /></p>
+<div id="teaching-staff" class="section level1 unnumbered">
+<h1>Teaching staff</h1>
+<p>Course Coordinator: <a href="https://languages-cultures.uq.edu.au/profile/4295/martin-schweinberger">Dr Martin Schweinberger</a> (email: m.schweinberger@uq.edu.au)</p>
+<p><strong>Office hours</strong></p>
+<p>We have a weekly drop-in session that you can attend to ask questions and discuss issues.</p>
 </div>
-<div id="goals" class="section level1 unnumbered">
-<h1>GOALS</h1>
-<p>The LADAL aims to help develop computational and digital skills by providing information and practical, hands-on tutorials on data and text analytics as well as on statistical methods relevant for language research. In addition, the LADAL provides self-guided study materials relevant for computational Natural Language Processing. In order to be attractive to both beginners and people with advanced skills, the LADAL website covers topics and introduces methods relevant for people coming with different degrees of prior knowledge and experience - ranging from introductions to concepts of quantitative reasoning to step-by-step guides on advanced statistical modeling.</p>
-<p>Since the primary concern of the LADAL is to introduce computational methods that are relevant to research involving natural language, the focus of this website is placed on linguistic data and methods relevant for text analytics. As such, the LADAL provides resources for (computational) text analytics and offers introductions to quantitative reasoning, research designs, and computational methods including data visualization and statistics. The areas covered on the LADAL website are</p>
-<p><img src="https://slcladal.github.io/images/dataviz.jpg" width="45%" style="float:left; padding:15px" /></p>
-<p><br></p>
+<div id="course-timetable" class="section level1 unnumbered">
+<h1>Course Timetable</h1>
+<p>There may be minor changes to the learning activities schedule due to, e.g., public holidays. Students will be advised of any changes in advance. Dates and times for make-up classes are made available to students in advance via Blackboard.</p>
+<template id="4b8b07d7-0a00-4c9b-b1b9-25ec15cd7fdd"><style>
+.tabwid table{
+  border-spacing:0px !important;
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-d6c57bb6{}.cl-d6bb371e{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d6bb371f{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d6bb5e06{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d6bb5e07{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d6bbab7c{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbab7d{width:202.1pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbab7e{width:364.8pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbab7f{width:240.6pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbab80{width:49.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbab81{width:240.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbab82{width:364.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbab83{width:202.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbab84{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbab85{width:202.1pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbab86{width:364.8pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2dc{width:240.6pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2dd{width:240.6pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2de{width:364.8pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2df{width:202.1pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2e0{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2e1{width:364.8pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2e2{width:202.1pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2e3{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2e4{width:240.6pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2e5{width:240.6pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbd2e6{width:364.8pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbf866{width:202.1pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d6bbf867{width:49.3pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-d6c57bb6'>
+<caption class="Table Caption">
+<p>Course plan for SLAT7806</p>
+</caption>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-d6bbf867"><p class="cl-d6bb5e06"><span class="cl-d6bb371e">Week</span></p></td><td class="cl-d6bbf866"><p class="cl-d6bb5e07"><span class="cl-d6bb371e">Topic</span></p></td><td class="cl-d6bbd2e5"><p class="cl-d6bb5e07"><span class="cl-d6bb371e">Reading</span></p></td><td class="cl-d6bbd2e6"><p class="cl-d6bb5e07"><span class="cl-d6bb371e">Recommended</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab7c"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">1</span></p></td><td class="cl-d6bbab7d"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Introduction and overview</span></p></td><td class="cl-d6bbab7f"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Course website &amp; ECP</span></p></td><td class="cl-d6bbab7e"><p class="cl-d6bb5e07"><span class="cl-d6bb371f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab80"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">2</span></p></td><td class="cl-d6bbab83"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">What is research?</span></p></td><td class="cl-d6bbab81"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Blaxter, Hughes, and Tight (2010: 1–20)</span></p></td><td class="cl-d6bbab82"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Course website: Introduction to Scientific Reasoning</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbd2e3"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">3</span></p></td><td class="cl-d6bbd2e2"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Basic concepts in research</span></p></td><td class="cl-d6bbd2e4"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Course website: Basic Concepts in Research</span></p></td><td class="cl-d6bbd2e1"><p class="cl-d6bb5e07"><span class="cl-d6bb371f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab80"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">4</span></p></td><td class="cl-d6bbab83"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Desinging a research project</span></p></td><td class="cl-d6bbab81"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Blaxter, Hughes, and Tight (2010: 134–154)</span></p></td><td class="cl-d6bbab82"><p class="cl-d6bb5e07"><span class="cl-d6bb371f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab84"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">5</span></p></td><td class="cl-d6bbab85"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Finding literature and referencing</span></p></td><td class="cl-d6bbd2dc"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Blaxter, Hughes, and Tight (2010: 99–133)</span></p></td><td class="cl-d6bbab86"><p class="cl-d6bb5e07"><span class="cl-d6bb371f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab80"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">6</span></p></td><td class="cl-d6bbab83"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Academic integrity</span></p></td><td class="cl-d6bbab81"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Podesva and Sharma (2014: 11-26)</span></p></td><td class="cl-d6bbab82"><p class="cl-d6bb5e07"><span class="cl-d6bb371f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab84"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">7</span></p></td><td class="cl-d6bbab85"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Corpus linguistics</span></p></td><td class="cl-d6bbd2dc"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Stefanowitsch (2020: 21-59)</span></p></td><td class="cl-d6bbab86"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Mackey and Gass (2012: 7-30), Podesva and Sharma (2014: 257-287)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab80"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">8</span></p></td><td class="cl-d6bbab83"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Qualitative research</span></p></td><td class="cl-d6bbab81"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Mackey and Gass (2012: 180-201)</span></p></td><td class="cl-d6bbab82"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Podesva and Sharma (2014: 460-493)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab84"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">9</span></p></td><td class="cl-d6bbab85"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Quantitative research</span></p></td><td class="cl-d6bbd2dc"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Mackey and Gass (2012: 245-274)</span></p></td><td class="cl-d6bbab86"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Podesva and Sharma (2014: 288-336)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab80"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">10</span></p></td><td class="cl-d6bbab83"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Experiments, interviews, and surveys</span></p></td><td class="cl-d6bbab81"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Mackey and Gass (2012: 74-94)</span></p></td><td class="cl-d6bbab82"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Podesva and Sharma (2014: 96-134)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab84"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">11</span></p></td><td class="cl-d6bbab85"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Writing up research</span></p></td><td class="cl-d6bbd2dc"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Blaxter, Hughes, and Tight (2010: 250-279)</span></p></td><td class="cl-d6bbab86"><p class="cl-d6bb5e07"><span class="cl-d6bb371f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbab80"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">12</span></p></td><td class="cl-d6bbab83"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Analyzing discourse and speech</span></p></td><td class="cl-d6bbab81"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Krug, Schlüter, and Schluter (2013: 244-259)</span></p></td><td class="cl-d6bbab82"><p class="cl-d6bb5e07"><span class="cl-d6bb371f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d6bbd2e0"><p class="cl-d6bb5e06"><span class="cl-d6bb371f">13</span></p></td><td class="cl-d6bbd2df"><p class="cl-d6bb5e07"><span class="cl-d6bb371f">Recap and student presentations</span></p></td><td class="cl-d6bbd2dd"><p class="cl-d6bb5e07"><span class="cl-d6bb371f"></span></p></td><td class="cl-d6bbd2de"><p class="cl-d6bb5e07"><span class="cl-d6bb371f"></span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="e2885846-745a-4eb2-9b25-8380475ee2e3"></div>
+<script>
+var dest = document.getElementById("e2885846-745a-4eb2-9b25-8380475ee2e3");
+var template = document.getElementById("4b8b07d7-0a00-4c9b-b1b9-25ec15cd7fdd");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+<p><strong>Literature</strong></p>
+<p>The required reading for this course are come from the <span class="citation">Blaxter, Hughes, and Tight (<a href="#ref-blaxter2010research" role="doc-biblioref">2010</a>)</span>, <span class="citation">Podesva and Sharma (<a href="#ref-podesva2014research" role="doc-biblioref">2014</a>)</span>, <span class="citation">Mackey and Gass (<a href="#ref-mackey2011research" role="doc-biblioref">2012</a>)</span>, <span class="citation">Krug, Schlüter, and Schluter (<a href="#ref-krug2013research" role="doc-biblioref">2013</a>)</span>, and <span class="citation">Stefanowitsch (<a href="#ref-stefanowitsch2020corpus" role="doc-biblioref">2020</a>)</span>.</p>
+</div>
+<div id="assessments" class="section level1">
+<h1>Assessments</h1>
+<p>To pass this course, students need to pass the following assessments.</p>
+<div id="study-tasks-weekly-online-quizzes" class="section level2 unnumbered">
+<h2>Study Tasks: weekly online quizzes</h2>
+<p><strong>Type</strong>: Online quiz</p>
+<p><strong>Submission</strong>: Need to be submitted each week from week 3 to week 12 via Blackboard (submissions need to be submitted before the week when the content of the quiz is discussed in class).</p>
+<p><strong>Weight</strong>: 20%</p>
+<p>Students need to take <strong>weekly pre-class quizzes</strong> that test the content of the readings. The quizzes will be multiple choice, short-answer questions, or fill-in-the-gaps kind of questions. There will be 8 quizzes (starting in week 3), each counting 2.5% of the overall course grade (8 x 2.5 = <strong>24%</strong>).</p>
+<p><strong>Task Description</strong>: This assessment consists of 8 online quizzes, made available via the course Blackboard site of weeks 3-12. Each quiz will be open until 5pm on Monday of the next week. Students will have 1 hour and only one attempt to complete each quiz. The quizzes will mostly consist of multiple choice and short answer questions; however, other types of questions may also be included and there will be at least one open-ended question per quiz. The purpose of these quizzes is to check students’ understanding of the course content in a continuous, uninterrupted manner. Additionally, students will be required to apply what they have learned in readings, lectures, and tutorials each week to new research examples. Through completion of the weekly quizzes, students get rapid feedback on their performance in the course and gain exposure to a wide range of research studies and published work, which will facilitate writing their Research Proposal.</p>
+<p>If you are unable to participate, consult 5.3 Late Submission.</p>
+<p><strong>Criteria &amp; Marking</strong>: Each question in a weekly online quiz will be assigned a particular point value, with the maximum possible amount of points awarded for each online quiz being 20. Failure to complete a quiz equals 0 points. After all five quizzes, the students’ average quiz score will be calculated (please note: quizzes that were not completed and thus awarded 0 points are included in the average calculations) and this average will constitute their final grade for this assessment.</p>
+<p><strong>Submission</strong>: The weekly online quizzes will need to be accessed, completed, and submitted via Blackboard.</p>
+</div>
+<div id="academic-integrity-online-quiz" class="section level2 unnumbered">
+<h2>Academic integrity online quiz</h2>
+<p><strong>Type</strong>: Online quiz</p>
+<p><strong>Submission</strong>: Needs to be submitted in week 7 (before week 8) via Blackboard</p>
+<p><strong>Weight</strong>: Pass / Fail</p>
+<p><strong>Task Description</strong>: Following Week 7 lecture and tutorial on Academic Integrity and Ethical Research, students will be required to complete an online quiz on these topics via Blackboard. The quiz will consist of 10 multiple-choice questions, and can be taken unlimited number of times, until the passing standard is attained. The quiz will be open on Tuesday, September 7, at 5pm in Week 7 and closed on October 18, Monday at 5pm in Week 12.</p>
+<p><strong>Criteria &amp; Marking</strong>: To get a passing grade for this assessment students will need to answer at least 80% of the quiz questions correctly (8 questions out of 10). Please note: if this quiz is not completed or completed below the assigned standard this will result in a FAIL grade for the course.</p>
+</div>
+<div id="library-research-project" class="section level2 unnumbered">
+<h2>Library research project</h2>
+<p><strong>Type</strong>: Annotated Bibliography</p>
+<p><strong>Submission</strong>: Needs to be submitted in week 9 (before week 10) via Turnitin.</p>
+<p><strong>Weight</strong>: 30%</p>
+<p><strong>Task Description</strong>: The purpose of this assignment is to give you experience in reading the research articles and identifying how research questions are motivated and examined.</p>
+<p>You should select 3 research articles in your area of interest from the library collection. Please choose the articles very carefully (i.e., from reputable peer-reviewed journals), as the credibility of your selected sources will be assessed. For each article, in a separate entry, answer the following questions:</p>
+<ol style="list-style-type: decimal">
+<li><p>What research question(s) did the article attempt to answer?<br> Identify the research question(s) and, where relevant, any hypotheses tested. Please DO NOT COPY the questions directly from the paper, but paraphrase and summarize them in your own words.</p></li>
+<li><p>What was the motivation for study?<br>Describe the motivation for the research undertaken. If possible specify if (and how) it was a replication and refinement of earlier research, an extension of prior research to fill an existing gap in the literature, or an attempt to break new ground, etc. Be specific. Name and cite the previous studies where appropriate.</p></li>
+<li><p>What methodology was used?<br>Identify the research methodology used to address the research question(s): Who were the participants? What tools/techniques/procedures were used? How was the data collected and analyzed?</p></li>
+<li><p>What were the findings?<br>Briefly state the results of the study. Were the research question(s) addressed? Were the hypotheses proved or disproved?</p></li>
+<li><p>What were the implications of the study?<br>Evaluate the study’s value (contribution to the field) and shortcomings (and were there any suggested improvement to mitigate those limitations?).</p></li>
+</ol>
+<p>Each entry should be no longer than 300 words. Your answers should be presented as a coherent and logical summary of the article rather than a list of answers to the five questions above. Bibliographic details for each article should be presented at the beginning of each entry in APA citation style. Any citations mentioned in text should be then followed up by a reference list (which will not contribute to the overall word count), also formatted according to APA. After completing the 3 entries write a short (400 words) comparison of your findings for the 3 articles analysed. Comment on differences and similarities across the 3 articles and why you think these differences and similarities exist. These common features might include the kind of research questions asked and the motivations used, the object of study, etc.</p>
+<p>Some style notes:</p>
 <ul>
-<li><p>introductions to quantitative reasoning and basic concepts in empirical language studies.</p></li>
-<li><p>introductions to R as programming environment for processing natural language data.</p></li>
-<li><p>tutorials on data visualization and data analytics (statistics and machine learning).</p></li>
-<li><p>tutorials on text analysis, text mining, distant reading, and corpus linguistics.</p></li>
+<li>Number your entries.</li>
+<li>The article should be cited at the beginning of each entry using APA format.</li>
+<li>Use double spacing and a 12 point font. Follow APA format for formatting your document.</li>
+<li>Use 2.5cm margin in both sides and top and bottom.</li>
+<li>Always aim to paraphrase and use your own words - it demonstrates critical analysis and synthesis of information.</li>
+<li>Write the number of words at the end of your assignment</li>
 </ul>
-<p><br></p>
-<hr />
-<div class="warning" style="padding:0.1em; background-color:#f2f2f2; color:#51247a">
-<span>
-<p style="margin-top:1em; text-align:center">
-<b>USER STORIES</b><br>We are currently looking for <strong>user stories</strong> (also known as <strong>testimonials</strong>) to see and show what people use LADAL resources for. If you have used LADAL resources - be it by simply copying some code, attending a workshop, learning about a method using a tutorial, or in any other way - we would be extremely grateful, if you would send us your user story! <br><br>To submit your user story, simply write up a paragraph describing how you have used LADAL resources and what you have used them for and send it to slcladal@uq.edu.au. We really appreciate any feedback from you about this!
-</p>
-<p style="margin-left:1em;">
-</p>
-<p></span></p>
+<p><strong>Criteria &amp; Marking</strong>: This assessment is marked out of 30 points. Please refer to the rubric below for a more detailed breakdown of the marking criteria.</p>
+<p>If you are unable to participate, consult 5.3 Late Submission in the ECP.</p>
+<p>More Information: SLAT7806_LTCS6000_Bibliography_rubric.pdf</p>
 </div>
-<hr />
-<hr />
-<p><img src="https://slcladal.github.io/images/audience.jpg" width="45%" style="float:right; padding:15px" /></p>
+<div id="research-proposal-and-presentation" class="section level2 unnumbered">
+<h2>Research proposal and presentation</h2>
+<p><strong>Type</strong>: Research Proposal</p>
+<p><strong>Submission</strong>: Written research proposal needs to be submitted via Turnitin (due date and time will be announced in class and via Blackboard). Presentations need to be submitted before week 13 via Turnitin.</p>
+<p><strong>Weight</strong>: 50%</p>
+<p><strong>Task Description</strong>: This assessment consists of 2 components: Research Proposal Presentation and Written Research Proposal.</p>
+<p><strong>1) Research Proposal Presentation (15%)</strong></p>
+<p>You will give a 10-minute presentation on your research proposal in one of the tutorials in weeks 10-13. The structure of your presentation should be the same as the structure of your written proposal (see below), but the content should be appropriately condensed to fit the allocated time limit. You will need to use visual support (e.g., PowerPoint/Prezi presentation, and, optionally, handouts) to go with your oral presentation. Note: your visual aid should help us follow your summary of the article. It should not be the same as your presentation script. Your presentation will be assessed by your lecturer.</p>
+<p><strong>2) Research proposal (35%)</strong></p>
+<p>Write a research proposal of no longer than 2000 words (excluding references), explaining the significance and design of your proposed research project.</p>
+<p><strong>Purpose</strong>: To undertake an in-depth research of a specific topic in language studies (it may be connected to the literature review you have already undertaken for your Annotated Bibliography assessment) and to propose a novel and original project which contributes to and/or extends this topic.</p>
+<p>Your task is to write a proposal consisting of the following sections:</p>
+<ul>
+<li>Introduction clearly stating the research topic and establishing the relevance of the research. This is also the section which clearly outlines the organization of your paper.</li>
+<li>Literature Review of the topic under discussion. Its structure should be apparent and appropriate for the material. Transitions between different themes, points, and sections should be smooth and clearly indicated. Literature Review should demonstrate student’s mastery of relevant theories and concepts and understanding of previous findings, covered in sufficient detail.</li>
+<li>A clear and specific statement of the Research Question, motivated by the literature review.</li>
+<li>Method should be clear and appropriate for the research question. Information about the context of the research, participants, data collection method, instruments used for data collection and data analysis should be given in detail.</li>
+<li>Conclusion should present critical evaluation of the proposed study, including its potential contributions to the relevant field of study and its limitations.</li>
+<li>References in APA format.</li>
+</ul>
+<p><strong>Criteria &amp; Marking</strong>: The Research Proposal assessment is worth 50% of your final grade. Below you will find the weighting of each individual component of this assessment as well as some additional information about the marking criteria. The relevant rubrics are also attached for your reference.</p>
+<ol style="list-style-type: decimal">
+<li><p>Your Research Proposal Presentation is assessed by your peers out of 15 points, using the rubric below. Presentations will take place during tutorials in week 13 (either in class or on zoom). It may be possible to complete this assessment remotely by uploading your presentation slides and an audio file with a recorded voice-over to a designated link on Blackboard (this must be done before your tutorial in week 13).</p></li>
+<li><p>Your Written Research Proposal is marked out of 35 points following the marking criteria in the attached rubric. It needs to be submitted via Turnitin.</p></li>
+</ol>
+<p>If you are unable to submit in time, consult 5.3 Late Submission in the ECP.</p>
+<p>More Information: SLAT7806_LTCS6000_Presentation_and_Proposal_rubrics.pdf</p>
 </div>
-<div id="audience" class="section level1 unnumbered">
-<h1>AUDIENCE</h1>
-<p>The LADAL resources are aimed at researchers in HASS (Humanities, Arts, and the Social Sciences) and we aspire to attract complete novices as well as expert users. And, while the focus of the LADAL website is placed on handling data that represents natural language, anyone who has an interest in quantitative methods, data visualization, statistics, or R is welcome to explore this webpage.</p>
-<p><br></p>
-<p><img src="https://slcladal.github.io/images/youtube.png" width="30%" style="float:right; padding:10px" /></p>
 </div>
-<div id="outreach" class="section level1 unnumbered">
-<h1>OUTREACH</h1>
-<p>At LADAL, we aim to reach out and make our resources available to the research community and anyone interested Language Technology, Data Analysis, and using computational means to extract, process, visualize and analyze language data. To this end, we offer workshops, give presentations and talks, organize webinars (see, e.g., the <a href="https://slcladal.github.io/opening.html">LADAL Webinar Series 2021</a>).</p>
-<p><img src="https://slcladal.github.io/images/facebook.png" width="15%" style="float:left; padding:10px" /></p>
-<p>In addition, we provide resources on the LADAL website and on the <a href="https://www.youtube.com/channel/UCrPUPT8UvOAxUnorC95-F4Q"><strong>LADAL YouTube channel</strong></a>, we announce updates on <strong>Twitter (@slcladal)</strong> as well as on our <a href="https://slcladal.github.io/news.html">NEWS site</a> and via our <a href="https://www.facebook.com/profile.php?id=100073328753218"><strong>Facebook</strong> page</a>. To get in touch, you can contact us on Twitter or send us an email via slcladal@uq.edu.au.</p>
-<p><br></p>
-<hr />
-<p><img src="https://slcladal.github.io/images/rcran.jpg" width="30%" style="float:right; padding:15px" /></p>
+<div id="extensions" class="section level1 unnumbered">
+<h1>Extensions</h1>
+<p><strong>Don’t leave assignment writing until the last minute. We encourage you to plan your workload so you can meet assessment deadlines.</strong></p>
+<p>We realise, however, that on occasion there may be exceptional circumstances beyond your control that prevent you from submitting an assessment item by the due date and time.</p>
+<p>In these circumstances, you can apply for an extension. Extensions can be requested for assessment items such as:</p>
+<ul>
+<li>essays</li>
+<li>assignments</li>
+<li>case studies</li>
+<li>laboratory reports</li>
+<li>take-home exams</li>
+<li>tutorial group assignments, and in some cases</li>
+<li>oral assessment.</li>
+</ul>
+<p>You can’t request extensions for:</p>
+<ul>
+<li>in-class tests</li>
+<li>mid-semester examinations</li>
+<li>end-of-semester examinations</li>
+<li>deferred or supplementary examinations.</li>
+</ul>
+<p><strong>Acceptable reasons for an extension</strong></p>
+<p>Extensions aren’t possible for every piece of assessment.</p>
+<p>You should submit a request as soon as it becomes clear that you need an extension. Your request should/cannot be submitted no later than the assessment item’s due date and time.</p>
+<p>A tutor, course coordinator or relevant staff member will refuse your extension request if they aren’t satisfied you took reasonable steps to avoid the circumstances that contributed to your being unable to submit an assessment item on time.</p>
+<p>To understand the acceptable reasons for an extension and the evidence you must provide, you can:</p>
+<ul>
+<li>Medical grounds</li>
+<li>Compassionate grounds</li>
+<li>Elite sporting commitments</li>
+<li>Elite performers</li>
+<li>Unavoidable work commitments</li>
+<li>Significant family or social commitment</li>
+<li>Defence forces or emergency services</li>
+<li>Jury duty</li>
+<li>Academic commitments</li>
+</ul>
+<p><a href="https://my.uq.edu.au/information-and-services/manage-my-program/exams-and-assessment/applying-extension?p=1#1">Here</a> is more information on the grounds for extensions and the required documents</p>
+<p>** Applying for an extension**</p>
+<p>If you need an extension because you cannot submit an assessment in time, you will have to formally apply for an extension (see <a href="https://my.uq.edu.au/information-and-services/manage-my-program/exams-and-assessment/applying-extension">here</a>).</p>
 </div>
-<div id="programming" class="section level1 unnumbered">
-<h1>PROGRAMMING</h1>
-<p>The LADAL primarily uses the programming language R because R is extremely flexible, relatively easy to learn, free and open source, and R has a substantive and very friendly user community. R is not merely a software package but a fully-fledged programming environment which allows complex Natural Language Processing, statistics and data visualizations and it can also be used to create websites or apps, and has direct pipelines for version control (Git). This website as well as the self-guided study materials offered by the LADAL use are written in R-markdown - a way to combine R-code with text. The flexibility of R makes it a sensible choice for researchers that strive for high quality and extreme flexibility while following best practices that enable complete replicability and full transparency.</p>
-<p><img src="https://slcladal.github.io/images/rstudiologo.png" width="30%" style="float:left; padding:15px" /></p>
-<p>As computation is becoming ever more prevalent across disciplines as well as in both the social and economic domains, the LADAL offers a resource space for R that make it accessible to lay users as well as expert programmers. That said, we will expand the resources provided by the LADAL to other tools and environments and include tutorials based on Python in the future.</p>
-<p><br></p>
-<hr />
-<p><img src="https://slcladal.github.io/images/license.png" width="30%" style="float:right; padding:15px" /></p>
-</div>
-<div id="licensing" class="section level1 unnumbered">
-<h1>LICENSING</h1>
-<p>The LADAL website was created by Martin Schweinberger. It was freely released under <a href="https://slcladal.netlify.com/license.html">GNU General Public License, Version 3, June 2007</a>.</p>
-<hr />
-</div>
-<div id="citation" class="section level1 unnumbered">
-<h1>CITATION</h1>
-<p>If you use (parts of) it for your own research or in your teaching materials, please cite the individual subpages as shown at the bottom of each page or reference it as:</p>
-<p>Schweinberger, Martin. 2021. <em>The Language Technology and Data Analysis Laboratory (LADAL)</em>. Brisbane: The University of Queensland, School of Languages and Cultures. url: <a href="https://slcladal.github.io/index.html" class="uri">https://slcladal.github.io/index.html</a> (Version 2021.10.24).</p>
-<pre><code>@manual{uqslc2021ladal,
+<div id="citation-session-info" class="section level1 unnumbered">
+<h1>Citation &amp; Session Info</h1>
+<p>Schweinberger, Martin. 2021. <em>SLAT7806: Research Methods</em>. Brisbane: The University of Queensland. url: <a href="https://slcladal.github.io/basicquant.html" class="uri">https://slcladal.github.io/basicquant.html</a> (Version 2021.10.29).</p>
+<pre><code>@manual{schweinberger2021slat7806,
   author = {Schweinberger, Martin},
-  title = {The Language Technology and Data Analysis Laboratory (LADAL)},
-  note = {https://slcladal.github.io/index.html},
+  title = {SLAT7806: Research Methods},
+  note = {https://slcladal.github.io/basicquant.html},
   year = {2021},
-  organization = {The University of Queensland, School of Languages and Cultures},
+  organization = &quot;The University of Queensland, Australia. School of Languages and Cultures},
   address = {Brisbane},
-  edition = {2021.10.24}
+  edition = {2021.10.29}
 }</code></pre>
 <hr />
+<p><a href="#introduction">Back to top</a></p>
+<hr />
 </div>
-<div id="disclaimer" class="section level1 unnumbered">
-<h1>DISCLAIMER</h1>
-<p><img src="https://slcladal.github.io/images/uq_campus.jpg" width="45%" style="float:right; padding:15px" /></p>
-<p><br></p>
-<p>The content of this website is free and comes with ABSOLUTELY NO WARRANTY. You are welcome to redistribute the content of LADAL resources given you adhere to the licensing. The content of this website is distributed under the terms of the <a href="https://slcladal.netlify.com/license.html">GNU General Public License, Version 3, June 2007</a>.</p>
-<p><br><br></p>
-<hr />
-<p><strong>Share and Enjoy!</strong></p>
-<hr />
-<p><a href="#welcome">Back to top</a></p>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-blaxter2010research">
+<p>Blaxter, Loraine, Christina Hughes, and Malcolm Tight. 2010. <em>How to Research</em>. Maidenhead, UK: McGraw-Hill Education.</p>
+</div>
+<div id="ref-krug2013research">
+<p>Krug, Manfred, Julia Schlüter, and Julia Schluter. 2013. <em>Research Methods in Language Variation and Change</em>. Cambridge: Cambridge University Press.</p>
+</div>
+<div id="ref-mackey2011research">
+<p>Mackey, Alison, and Susan M Gass. 2012. <em>Research Methods in Second Language Acquisition: A Practical Guide</em>. John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-podesva2014research">
+<p>Podesva, Robert J, and Devyani Sharma. 2014. <em>Research Methods in Linguistics</em>. Cambridge: Cambridge University Press.</p>
+</div>
+<div id="ref-stefanowitsch2020corpus">
+<p>Stefanowitsch, Anatol. 2020. <em>Corpus Linguistics: A Guide to the Methodology</em>. Language Science Press.</p>
+</div>
+</div>
 </div>
 
 
@@ -479,7 +581,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -496,7 +598,6 @@ $(document).ready(function () {
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
-
 
 </body>
 </html>

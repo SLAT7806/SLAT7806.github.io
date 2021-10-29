@@ -1,6 +1,6 @@
 ---
-title: "SLAT7806: Research Methods"
-author: ""
+title: 'SLAT7806: Research Methods'
+author: "Martin Schweinberger"
 date: "`r format(Sys.time(), '%Y-%m-%d')`"
 output:
   html_document: default
@@ -8,69 +8,95 @@ bibliography: bibliography.bib
 link-citations: yes
 ---
 
-```{r uq1, echo=F, fig.cap="", message=FALSE, warning=FALSE, out.width='100%'}
-knitr::include_graphics("https://slcladal.github.io/images/uq1.jpg")
-```
-
-***
-
 
 ```{r uq1, echo=F, fig.cap="", message=FALSE, warning=FALSE, out.width='100%'}
 knitr::include_graphics("https://slcladal.github.io/images/uq1.jpg")
 ```
 
-# Introduction
+# Introduction{-}
 
-The course consists of 1-hour lectures and 2-hour tutorials. The lecture introduces a topic and the topic is then expanded upon and tackled practically in the tutorials. To pass this course, students need to take weekly pre-class quizzes that test the content of the readings and the lecture (50%). In addition, the students will have to submit a project proposal in which they describe a research project. Furthermore, students have to either submit a video of a presentation of the project proposal or present the project proposal in the last tutorial (10%).
+This is a postgraduate-level course on academic research methods in language and culture studies, with a particular focus on the areas of language use, learning, and teaching. The course covers a wide variety of issues and topics raised in current and seminal works on language acquisition across ages, in different communities, in and out of the classroom context. It is designed to familiarize the students with a range of qualitative and quantitative research techniques and ethical research practices. The students are also introduced to the core steps of conceptualizing, designing, undertaking, and presenting (orally and in writing) a research project, which are the essential skills for postgraduate students and academics.
+
+Weekly learning activities consist of a one-hour online lecture (available via the course Blackboard site) and a two-hour tutorial (conducted either in class or via zoom). The online lecture is jointly offered for two courses: SLAT7806 and LTCS6000 (Honours and MACTI/MAJIT students). Throughout the semester you will be expected to contribute substantially and consistently to our tutorial activities and discussions of research approaches, methodologies, drawing on your own ideas and experiences. Please make sure that you keep up with the course content by reviewing the online materials made available on Blackboard (e.g., lecture podcasts, lecture and tutorial slides, readings) and completing the assessments.
+
+There may be minor changes to the learning activities schedule due to  public holidays. Students will be advised on the date and timing of  make-up classes in advance on Blackboard.
+
+**Course Aims**
+
+The course aims to introduce research methodology in language and culture studies (with a particular interest in language). It will present the fundamental skills needed to plan and carry out various types of postgraduate research, ranging from critical reading, to structuring course papers and dissertation, to basic practical data collection and analysis tools and techniques. Topics examined include the nature and types of research, research quality and planning, honesty and ethics in research, library and database searches, developing a research topic and literature review, preparing a research proposal, and critical reading and writing skills. Course assessments will provide the opportunity to apply these skills in relevant research tasks.
+
+**Assumed Background**
+
+This course assumes no previous knowledge of research methods, but some knowledge of general and applied linguistics will be useful.
+
+**Course Changes in Response to Feedback**	
+
+Weekly Online Tasks, to be completed in the first half of the semester via Blackboard, start only in week 3 to prevent disadvantages to students who sign up for the course after the orientation period.
+
+The maximum time allotted for completion of each weekly task has been increased from 1 hour to 1 hour and 15 minutes.
+
+# Teaching staff{-}
+
+Course Coordinator: [Dr Martin Schweinberger](https://languages-cultures.uq.edu.au/profile/4295/martin-schweinberger) (email: m.schweinberger\@uq.edu.au)
+
+**Office hours**
+
+We have a weekly drop-in session that you can attend to ask questions and discuss issues.
+
+
+
+# Course Timetable{-}
+
+There may be minor changes to the learning activities schedule due to, e.g.,  public holidays. Students will be advised of any changes in advance. Dates and times for make-up classes are made available to students in advance via Blackboard.
 
 ```{r plan, echo=F, eval = T, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(flextable)
 topic <- c("Introduction and overview", 
-           "What is science?", 
-           "Basic concepts in science",
+           "What is research?", 
+           "Basic concepts in research",
            "Desinging a research project",
            "Finding literature and referencing",
            "Academic integrity",
            "Corpus linguistics",
            "Qualitative research", 
-           "Quantitative research: Describing data", 
-           "Quantitative research: Analyzing data", 
+           "Quantitative research", 
+           "Experiments, interviews, and surveys", 
            "Writing up research",  
-           "Analyzing speech",  
+           "Analyzing discourse and speech",  
            "Recap and student presentations")
-reading <- c("ECP",
-             "LADAL: Introduction to Quantitative Reasoning", 
-             "LADAL: Basic Concepts in Science",
+reading <- c("Course website & ECP",
+             "Blaxter, Hughes, and Tight (2010: 1–20)",
+             "Course website: Basic Concepts in Research",
+             "Blaxter, Hughes, and Tight (2010: 134–154)",
+             "Blaxter, Hughes, and Tight (2010: 99–133)",
+             "Podesva and Sharma (2014: 11-26)",
+             "Stefanowitsch (2020: 21-59)",
+             "Mackey and Gass (2012: 180-201)",
+             "Mackey and Gass (2012: 245-274)",
+             "Mackey and Gass (2012: 74-94)",
+             "Blaxter, Hughes, and Tight (2010: 250-279)",
+             "Krug, Schlüter, and Schluter (2013: 244-259)",
+             "")
+opt <- c("",
+             "Course website: Introduction to Scientific Reasoning", 
              "",
              "",
              "",
              "",
-             "",
-             "",
-             "",
+             "Mackey and Gass (2012: 7-30), Podesva and Sharma (2014: 257-287)",
+             "Podesva and Sharma (2014: 460-493)",
+             "Podesva and Sharma (2014: 288-336)",
+             "Podesva and Sharma (2014: 96-134)",
              "",
              "",
              "")
-url <- c("",
-         "https://slcladal.github.io/introquant.html",
-         "https://slcladal.github.io/bsicquant.html",
-         "",
-         "",
-         "", 
-         "",
-         "",
-         "",
-         "",
-         "",
-         "",
-         "")
 slat7806plan <- data.frame(id <- 1:13)
 slat7806plan <- slat7806plan %>%
   dplyr::rename(Week = colnames(slat7806plan)[1]) %>%
   dplyr::mutate(Topic = topic,
                 Reading = reading,
-                url = url
+                Recommended = opt
                 )
 fx <- flextable(slat7806plan) %>%
   flextable::set_caption(caption = "Course plan for SLAT7806")  %>%
@@ -79,134 +105,180 @@ fx <- flextable(slat7806plan) %>%
 fx
 ```
 
+**Literature**
 
-# Course plan
-
-## Week 1: Introduction and overview
-
-Lecture: basic information about the course (ECP, Assessments)
-
-Tutorial: why do we need the scientific method and how does it work?
-
-## Week 2: Conceptualizing a research project
-
-Lecture: Podcast + Slides
-
-* Scientific circle
-
-* Research question
-
-Tutorial: the research process, scientific circle, 
-
-## Week 3: Desinging a research project
-
-Lecture: Podcast + Slides
-
-Tutorial: 
-
-## Week 4: Qualitative research
-
-Lecture: Podcast + Slides
-
-Tutorial: 
-
-## Week 5: Quantitative research
-
-Lecture: Podcast + Slides
-
-Tutorial: example data set - practical task: describing and visualizing data in JASP
-
-## Week 6: Data Analysis
-
-Lecture: Podcast + Slides
-
-Tutorial: example data set - practical task: performing tests with JASP
-
-## Week 7: Writing up research
-
-Lecture: Podcast + Slides
-
-Tutorial: Features of academic English, structure of research paper, referencing and citation
-
-## Week 8: Academic integrity
-
-Lecture: Podcast + Slides
-
-Tutorial: 
-
-## Week 9: Analyzing language in context
-
-Lecture: Podcast + Slides
-
-* Sociolinguistics
-
-* Discourse Analysis
-
-Tutorial: 
+The required reading for this course are come from the  @blaxter2010research, @podesva2014research, @mackey2011research,  @krug2013research, and @stefanowitsch2020corpus.
 
 
-## Week 10: Analyzing speech
+# Assessments
 
-Lecture: Podcast + Slides
+To pass this course, students need to pass the following assessments.
 
-* Phonetics
+## Study Tasks: weekly online quizzes{-}
 
-* Phonology
+**Type**: Online quiz
 
-Tutorial: 
+**Submission**: Need to be submitted each week from week 3 to week 12 via Blackboard (submissions need to be submitted before the week when the content of the quiz is discussed in class).
 
-## Week 11: Bilingualism research
+**Weight**: 20%
 
-Lecture: Podcast + Slides
+Students need to take **weekly pre-class quizzes** that test the content of the readings. The quizzes will be multiple choice, short-answer questions, or fill-in-the-gaps kind of questions. There will be 8 quizzes (starting in week 3), each counting 2.5% of the overall course grade (8 x 2.5 = **24%**).
 
-* Bilingualim
+**Task Description**: This assessment consists of 8 online quizzes, made available via the course Blackboard site of weeks 3-12. Each quiz will be open until 5pm on Monday of the next week. Students will have 1 hour and only one attempt to complete each quiz. The quizzes will mostly consist of multiple choice and short answer questions; however, other types of questions may also be included and there will be at least one open-ended question per quiz. The purpose of these quizzes is to check students' understanding of the course content in a continuous, uninterrupted manner. Additionally, students will be required to apply what they have learned in readings, lectures, and tutorials each week to new research examples. Through completion of the weekly quizzes, students get rapid feedback on their performance in the course and gain exposure to a wide range of research studies and published work, which will facilitate writing their Research Proposal.
 
-Tutorial: 
+If you are unable to participate, consult 5.3 Late Submission.
 
-## Week 12: Corpus-based research
+**Criteria & Marking**: Each question in a weekly online quiz will be assigned a particular point value, with the maximum possible amount of points awarded for each online quiz being 20. Failure to complete a quiz equals 0 points. After all five quizzes, the students' average quiz score will be calculated (please note: quizzes that were not completed and thus awarded 0 points are included in the average calculations) and this average will constitute their final grade for this assessment.
 
-Lecture: Podcast + Slides
+**Submission**: The weekly online quizzes will need to be accessed, completed, and submitted via Blackboard.
 
-* Corpora
+## Academic integrity online quiz{-}
 
-* KWICs and concordances
+**Type**: Online quiz
 
-Tutorial: Practical tasks - analyzing a corpus using AntConc
+**Submission**: Needs to be submitted in week 7 (before week 8) via Blackboard
 
-## Week 13: Recap and student presentations
+**Weight**: Pass / Fail
 
-Lecture: Podcast + Slides
+**Task Description**: Following Week 7 lecture and tutorial on Academic Integrity and Ethical Research, students will be required to complete an online quiz on these topics via Blackboard. The quiz will consist of 10 multiple-choice questions, and can be taken unlimited number of times, until the passing standard is attained. The quiz will be open on Tuesday, September 7, at 5pm in Week 7 and closed on October 18, Monday at 5pm in Week 12.
 
-Tutorial: Student presentations of their research proposal
-
-# Assessment
-
-To pass this course, students need to pass three main assessments.
-
-* Quizzes: students need to take **weekly pre-class quizzes** that test the content of the readings and the lecture. The quizzes will be multiple choice, or fill-in-the-gaps kind of questions. There will be 10 quizzes, each counting 5% of the overall course grade (10 x 5 = **50%**).
-
-* Project: students will have to submit a **project proposal** in which they describe a research project. (**40%**)
-
-* Presentations: students have to **present their project proposal** in the last tutorial. Students can either submit a video of the presentation of their project proposal or present in class (if possible).  (**10%**)
-
-# Materials
+**Criteria & Marking**: To get a passing grade for this assessment students will need to answer at least 80% of the quiz questions correctly (8 questions out of 10). Please note: if this quiz is not completed or completed below the assigned standard this will result in a FAIL grade for the course.
 
 
-**Quizzes**
+## Library research project{-}
 
-Availability, closing and scoring | marking will be automated on Blackboard
+**Type**: Annotated Bibliography
 
-* Week 3 (there will be two quizzes - a regular one and an additional one for late comers to the course)
-* Week 4
-* Week 5  
-* Week 6  
-* Week 7  
-* Week 8  
-* Week 9  
-* Week 10  
-* Week 11  
-* Week 12 
+**Submission**: Needs to be submitted in week 9 (before week 10) via Turnitin.
 
+**Weight**: 30%
+
+**Task Description**: The purpose of this assignment is to give you experience in reading the research articles and identifying how research questions are motivated and examined.
+
+You should select 3 research articles in your area of interest from the library collection. Please choose the articles very carefully (i.e., from reputable peer-reviewed journals), as the credibility of your selected sources will be assessed. For each article, in a separate entry, answer the following questions:
+
+1. What research question(s) did the article attempt to answer?<br>
+Identify the research question(s) and, where relevant, any hypotheses tested. Please DO NOT COPY the questions directly from the paper, but paraphrase and summarize them in your own words.
+
+2. What was the motivation for study?<br>Describe the motivation for the research undertaken. If possible specify if (and how) it was a replication and refinement of earlier research, an extension of prior research to fill an existing gap in the literature, or an attempt to break new ground, etc. Be specific. Name and cite the previous studies where appropriate.
+
+3. What methodology was used?<br>Identify the research methodology used to address the research question(s): Who were the participants? What tools/techniques/procedures were used? How was the data collected and analyzed?
+
+4. What were the findings?<br>Briefly state the results of the study. Were the research question(s) addressed? Were the hypotheses proved or disproved? 
+ 
+5. What were the implications of the study?<br>Evaluate the study's value (contribution to the field) and shortcomings (and were there any suggested improvement to mitigate those limitations?).  
+
+Each entry should be no longer than 300 words. Your answers should be presented as a coherent and logical summary of the article rather than a list of answers to the five questions above. Bibliographic details for each article should be presented at the beginning of each entry in APA citation style. Any citations mentioned in text should be then followed up by a reference list (which will not contribute to the overall word count), also formatted according to APA. After completing the 3 entries write a short (400 words) comparison of your findings for the 3 articles analysed. Comment on differences and similarities across the 3 articles and why you think these differences and similarities exist. These common features might include the kind of research questions asked and the motivations used, the object of study, etc.
+
+Some style notes:
+
+* Number your entries.
+* The article should be cited at the beginning of each entry using APA format.
+* Use double spacing and a 12 point font. Follow APA format for formatting your document.
+* Use 2.5cm margin in both sides and top and bottom.
+* Always aim to paraphrase and use your own words - it demonstrates critical analysis and synthesis of information.
+* Write the number of words at the end of your assignment
+
+ 
+**Criteria & Marking**: This assessment is marked out of 30 points. Please refer to the rubric below for a more detailed breakdown of the marking criteria.
+
+If you are unable to participate, consult 5.3 Late Submission in the ECP.
+
+More Information: SLAT7806_LTCS6000_Bibliography_rubric.pdf
+
+
+
+## Research proposal and presentation{-}
+
+
+**Type**: Research Proposal
+
+**Submission**: Written research proposal needs to be submitted via Turnitin (due date and time will be announced in class and via Blackboard). Presentations need to be submitted before week 13 via Turnitin.
+
+**Weight**: 50%
+
+**Task Description**: This assessment consists of 2 components: Research Proposal Presentation and Written Research Proposal.
+ 
+
+**1) Research Proposal Presentation (15%)**
+
+You will give a 10-minute presentation on your research proposal in one of the tutorials in weeks 10-13. The structure of your presentation should be the same as the structure of your written proposal (see below), but the content should be appropriately condensed to fit the allocated time limit. You will need to use visual support (e.g., PowerPoint/Prezi presentation, and, optionally, handouts) to go with your oral presentation. Note: your visual aid should help us follow your summary of the article. It should not be the same as your presentation script. Your presentation will be assessed by your lecturer.
+
+**2) Research proposal (35%)**
+
+Write a research proposal of no longer than 2000 words (excluding references), explaining the significance and design of your proposed research project.
+ 
+**Purpose**: To undertake an in-depth research of a specific topic in language studies (it may be connected to the literature review you have already undertaken for your Annotated Bibliography assessment) and to propose a novel and original project which contributes to and/or extends this topic.
+
+Your task is to write a proposal consisting of the following sections:
+
+* Introduction clearly stating the research topic and establishing the relevance of the research. This is also the section which clearly outlines the organization of your paper.
+* Literature Review of the topic under discussion. Its structure should be apparent and appropriate for the material. Transitions between different themes, points, and sections should be smooth and clearly indicated. Literature Review should demonstrate student's mastery of relevant theories and concepts and understanding of previous findings, covered in sufficient detail.
+* A clear and specific statement of the Research Question, motivated by the literature review. 
+*  Method should be clear and appropriate for the research question. Information about the context of the research, participants, data collection method, instruments used for data collection and data analysis should be given in detail.
+* Conclusion should present critical evaluation of the proposed study, including its potential contributions to the relevant field of study and its limitations.
+* References in APA format.
+
+ 
+**Criteria & Marking**: The Research Proposal assessment is worth 50% of your final grade. Below you will find the weighting of each individual component of this assessment as well as some additional information about the marking criteria. The relevant rubrics are also attached for your reference.
+
+1) Your Research Proposal Presentation is assessed by your peers out of 15 points, using the rubric below. Presentations will take place during tutorials in week 13 (either in class or on zoom). It may be possible to complete this assessment remotely by uploading your presentation slides and an audio file with a recorded voice-over to a designated link on Blackboard (this must be done before your tutorial in week 13).
+
+2) Your Written Research Proposal is marked out of 35 points following the marking criteria in the attached rubric. It needs to be submitted via Turnitin.
+
+If you are unable to submit in time, consult 5.3 Late Submission in the ECP.
+
+More Information: SLAT7806_LTCS6000_Presentation_and_Proposal_rubrics.pdf
+
+# Extensions{-}
+
+**Don't leave assignment writing until the last minute. We encourage you to plan your workload so you can meet assessment deadlines.**
+
+We realise, however, that on occasion there may be exceptional circumstances beyond your control that prevent you from submitting an assessment item by the due date and time. 
+
+In these circumstances, you can apply for an extension. Extensions can be requested for assessment items such as:
+
+* essays
+* assignments
+* case studies
+* laboratory reports
+* take-home exams
+* tutorial group assignments, and in some cases
+* oral assessment.
+
+You can't request extensions for:
+
+* in-class tests
+* mid-semester examinations
+* end-of-semester examinations
+* deferred or supplementary examinations.
+
+**Acceptable reasons for an extension**
+
+Extensions aren't possible for every piece of assessment.
+
+You should submit a request as soon as it becomes clear that you need an extension. Your request should/cannot be submitted no later than the assessment item's due date and time.
+
+A tutor, course coordinator or relevant staff member will refuse your extension request if they aren't satisfied you took reasonable steps to avoid the circumstances that contributed to your being unable to submit an assessment item on time.
+
+To understand the acceptable reasons for an extension and the evidence you must provide, you can: 
+
+* Medical grounds
+* Compassionate grounds
+* Elite sporting commitments
+* Elite performers
+* Unavoidable work commitments
+* Significant family or social commitment
+* Defence forces or emergency services
+* Jury duty
+* Academic commitments
+
+[Here](https://my.uq.edu.au/information-and-services/manage-my-program/exams-and-assessment/applying-extension?p=1#1) is more information on the grounds for extensions and the required documents
+
+** Applying for an extension**
+
+If you need an extension because you cannot submit an assessment in time, you will have to formally apply for an extension (see [here](https://my.uq.edu.au/information-and-services/manage-my-program/exams-and-assessment/applying-extension)).
+ 
 # Citation & Session Info {-}
 
 Schweinberger, Martin. `r format(Sys.time(), '%Y')`. *SLAT7806: Research Methods*. Brisbane: The University of Queensland. url: https://slcladal.github.io/basicquant.html   (Version `r format(Sys.time(), '%Y.%m.%d')`).
@@ -230,4 +302,5 @@ Schweinberger, Martin. `r format(Sys.time(), '%Y')`. *SLAT7806: Research Methods
 ***
 
 # References {-}
+
 
