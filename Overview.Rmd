@@ -13,58 +13,86 @@ link-citations: yes
 knitr::include_graphics("https://slcladal.github.io/images/uq1.jpg")
 ```
 
-# Introduction
+# Introduction{-}
+
+This is a postgraduate-level course on academic research methods in language and culture studies, with a particular focus on the areas of language use, learning, and teaching. The course covers a wide variety of issues and topics raised in current and seminal works on language acquisition across ages, in different communities, in and out of the classroom context. It is designed to familiarize the students with a range of qualitative and quantitative research techniques and ethical research practices. The students are also introduced to the core steps of conceptualizing, designing, undertaking, and presenting (orally and in writing) a research project, which are the essential skills for postgraduate students and academics.
 
 The course consists of 1-hour lectures and 2-hour tutorials. The lecture introduces a topic and the topic is then expanded upon and tackled practically in the tutorials. To pass this course, students need to take weekly pre-class quizzes that test the content of the readings and the lecture (50%). In addition, the students will have to submit a project proposal in which they describe a research project. Furthermore, students have to either submit a video of a presentation of the project proposal or present the project proposal in the last tutorial (10%).
+
+# Course Aims{-}
+
+The course aims to introduce research methodology in language and culture studies (with a particular interest in language). It will present the fundamental skills needed to plan and carry out various types of postgraduate research, ranging from critical reading, to structuring course papers and dissertation, to basic practical data collection and analysis tools and techniques. Topics examined include the nature and types of research, research quality and planning, honesty and ethics in research, library and database searches, developing a research topic and literature review, preparing a research proposal, and critical reading and writing skills. Course assessments will provide the opportunity to apply these skills in relevant research tasks.
+
+# Course Changes in Response to Feedback {-}	
+
+Weekly Online Tasks, to be completed in the first half of the semester via Blackboard, start only in week 3 to prevent disadvantages to students who sign up for the course after the orientation period.
+
+The maximum time allotted for completion of each weekly task has been increased from 1 hour to 1 hour and 15 minutes.
+
+# Teaching staff{-}
+
+Course Coordinator: [Dr Martin Schweinberger](https://languages-cultures.uq.edu.au/profile/4295/martin-schweinberger) (email: m.schweinberger\@uq.edu.au)
+
+# Office hours{-}
+
+We have a weekly drop-in session that you can attend to ask questions and discuss issues.
+
+# Assumed Background {-}
+
+This course assumes no previous knowledge of research methods, but some knowledge of general and applied linguistics will be useful.
+
+# Course Timetable{-}
+
+There may be minor changes to the learning activities schedule due to, e.g.,  public holidays. Students will be advised of any changes in advance. Dates and times for make-up classes are made available to students in advance via Blackboard.
 
 ```{r plan, echo=F, eval = T, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(flextable)
 topic <- c("Introduction and overview", 
-           "What is science?", 
-           "Basic concepts in science",
+           "What is research?", 
+           "Basic concepts in research",
            "Desinging a research project",
            "Finding literature and referencing",
            "Academic integrity",
            "Corpus linguistics",
            "Qualitative research", 
            "Quantitative research", 
-           "Experiments and questionnaires", 
+           "Experiments, interviews, and surveys", 
            "Writing up research",  
-           "Analyzing speech",  
+           "Analyzing discourse and speech",  
            "Recap and student presentations")
 reading <- c("ECP",
-             "LADAL: Introduction to Quantitative Reasoning", 
-             "LADAL: Basic Concepts in Science",
+             "Course website: Introduction to Scientific Reasoning",
+             "Course website: Basic Concepts in Research",
+             "Blaxter, Hughes, and Tight (2010: 134–154)",
+             "Blaxter, Hughes, and Tight (2010: 99–133)",
+             "Podesva and Sharma (2014: 11-26)",
+             "Stefanowitsch (2020: 21-59)",
+             "Mackey and Gass (2012: 180-201)",
+             "Mackey and Gass (2012: 245-274)",
+             "Mackey and Gass (2012: 74-94)",
+             "Blaxter, Hughes, and Tight (2010: 250-279)",
+             "Krug, Schlüter, and Schluter (2013: 244-259)",
+             "")
+opt <- c("",
+             "", 
              "",
              "",
              "",
              "",
-             "",
-             "",
-             "",
+             "Mackey and Gass (2012: 7-30), Podesva and Sharma (2014: 257-287)",
+             "Podesva and Sharma (2014: 460-493)",
+             "Podesva and Sharma (2014: 288-336)",
+             "Podesva and Sharma (2014: 96-134)",
              "",
              "",
              "")
-url <- c("",
-         "https://slcladal.github.io/introquant.html",
-         "https://slcladal.github.io/bsicquant.html",
-         "",
-         "",
-         "", 
-         "",
-         "",
-         "",
-         "",
-         "",
-         "",
-         "")
 slat7806plan <- data.frame(id <- 1:13)
 slat7806plan <- slat7806plan %>%
   dplyr::rename(Week = colnames(slat7806plan)[1]) %>%
   dplyr::mutate(Topic = topic,
                 Reading = reading,
-                url = url
+                Recommended = opt
                 )
 fx <- flextable(slat7806plan) %>%
   flextable::set_caption(caption = "Course plan for SLAT7806")  %>%
@@ -73,8 +101,11 @@ fx <- flextable(slat7806plan) %>%
 fx
 ```
 
+# Literature
 
-# Course plan
+The required reading for this course are come from the  @blaxter2010research, @podesva2014research, @mackey2011research,  @krug2013research, and @stefanowitsch2020corpus.
+
+# Learning Activities{-}
 
 ## Week 1: Introduction and overview
 
@@ -82,7 +113,9 @@ Lecture: basic information about the course (ECP, Assessments)
 
 Tutorial: why do we need the scientific method and how does it work?
 
-## Week 2: Conceptualizing a research project
+Reading: ECP
+
+## Week 2: What is research?
 
 Lecture: Podcast + Slides
 
@@ -92,43 +125,45 @@ Lecture: Podcast + Slides
 
 Tutorial: the research process, scientific circle, 
 
-## Week 3: Desinging a research project
+Reading: 
+
+## Week 3: Basic concepts in research
 
 Lecture: Podcast + Slides
 
 Tutorial: 
 
-## Week 4: Qualitative research
+## Week 4: Desinging a research project
 
 Lecture: Podcast + Slides
 
 Tutorial: 
 
-## Week 5: Quantitative research
+## Week 5: Finding literature and referencing
 
 Lecture: Podcast + Slides
 
 Tutorial: example data set - practical task: describing and visualizing data in JASP
 
-## Week 6: Data Analysis
+## Week 6: Academic integrity
 
 Lecture: Podcast + Slides
 
 Tutorial: example data set - practical task: performing tests with JASP
 
-## Week 7: Writing up research
+## Week 7: Corpus linguistics
 
 Lecture: Podcast + Slides
 
 Tutorial: Features of academic English, structure of research paper, referencing and citation
 
-## Week 8: Academic integrity
+## Week 8: Qualitative research
 
 Lecture: Podcast + Slides
 
 Tutorial: 
 
-## Week 9: Analyzing language in context
+## Week 9: Quantitative research
 
 Lecture: Podcast + Slides
 
@@ -139,7 +174,7 @@ Lecture: Podcast + Slides
 Tutorial: 
 
 
-## Week 10: Analyzing speech
+## Week 10: Experiments, interviews, and surveys
 
 Lecture: Podcast + Slides
 
@@ -149,7 +184,7 @@ Lecture: Podcast + Slides
 
 Tutorial: 
 
-## Week 11: Bilingualism research
+## Week 11: Writing up research
 
 Lecture: Podcast + Slides
 
@@ -157,7 +192,7 @@ Lecture: Podcast + Slides
 
 Tutorial: 
 
-## Week 12: Corpus-based research
+## Week 12: Analyzing discourse and speech
 
 Lecture: Podcast + Slides
 
@@ -177,29 +212,17 @@ Tutorial: Student presentations of their research proposal
 
 To pass this course, students need to pass three main assessments.
 
-* Quizzes: students need to take **weekly pre-class quizzes** that test the content of the readings and the lecture. The quizzes will be multiple choice, or fill-in-the-gaps kind of questions. There will be 10 quizzes, each counting 5% of the overall course grade (10 x 5 = **50%**).
+## Quizzes{-}
 
-* Project: students will have to submit a **project proposal** in which they describe a research project. (**40%**)
+Students need to take **weekly pre-class quizzes** that test the content of the readings and the lecture. The quizzes will be multiple choice, or fill-in-the-gaps kind of questions. There will be 10 quizzes, each counting 5% of the overall course grade (10 x 5 = **50%**).
 
-* Presentations: students have to **present their project proposal** in the last tutorial. Students can either submit a video of the presentation of their project proposal or present in class (if possible).  (**10%**)
+## Project{-} 
 
-# Materials
+Students will have to submit a **project proposal** in which they describe a research project. (**40%**)
 
+## Presentations{-}
 
-**Quizzes**
-
-Availability, closing and scoring | marking will be automated on Blackboard
-
-* Week 3 (there will be two quizzes - a regular one and an additional one for late comers to the course)
-* Week 4
-* Week 5  
-* Week 6  
-* Week 7  
-* Week 8  
-* Week 9  
-* Week 10  
-* Week 11  
-* Week 12 
+Students have to **present their project proposal** in the last tutorial. Students can either submit a video of the presentation of their project proposal or present in class (if possible).  (**10%**)
 
 # Citation & Session Info {-}
 

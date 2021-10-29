@@ -7,28 +7,32 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-<link rel="icon" 
-      type="image/x-icon" 
-      href="favicon.ico" />
 
 
 <meta name="author" content="Martin Schweinberger" />
 
-<meta name="date" content="2021-10-26" />
+<meta name="date" content="2021-10-29" />
 
 <title>SLAT7806: Research Methods</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/tabwid-1.0.0/tabwid.css" rel="stylesheet" />
 
 <style type="text/css">
@@ -41,11 +45,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -58,32 +57,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -94,10 +67,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -114,40 +83,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -175,7 +117,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -187,7 +129,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -198,10 +140,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -213,7 +168,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -266,8 +220,7 @@ $(document).ready(function () {
 
 
 
-<!-- added by SKC for LADAL Style -->
-<link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
@@ -277,20 +230,8 @@ $(document).ready(function () {
 
 
 
+
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  
-  <!-- Added by SKC - LADAL image and thicker top with   -->
-  <div class="container-fluid navbar-top" >
-    <a href="index.html"> <!-- Make entire top row and text clickable home link  -->
-        <div class="row">
-            <div class="navbar-brand col-md-12">
-              <img src="ladal_icon_cas_tran_white_trimed.png" class="navbar-icon" alt="SLAT7806: Research Methods"/>
-              <span class="navbar-title-note navbar-collapse collapse" >Language Technology and Data Analysis Laboratory</span>
-            </div>
-        </div>
-    </a>
-  </div>
-  
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -298,7 +239,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!-- SKC removed  navbar brand -->
+      <a class="navbar-brand" href="index.html">SLAT7806: Research Methods</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -318,25 +259,25 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="Wk1_Intro.html">Week 1: Introduction and overview</a>
+  <a href="Wk1_Intro.html">Week 1</a>
 </li>
 <li>
-  <a href="Wk2_Science.html">Week 2: What is science?</a>
+  <a href="Wk2_Science.html">Week 2</a>
 </li>
 <li>
-  <a href="Wk3_Basics.html">Week 3: Basic concepts</a>
+  <a href="Wk3_Basics.html">Week 3</a>
 </li>
 <li>
-  <a href="Wk4_Design.html">Week 4: Desinging a research project</a>
+  <a href="Wk4_Design.html">Week 4</a>
 </li>
 <li>
-  <a href="Wk5_Lit.htm">Week 5: Finding literature and referencing</a>
+  <a href="Wk5_Lit.htm">Week 5</a>
 </li>
 <li>
-  <a href="Wk6_Ethics.html">Week 6: Academic integrity</a>
+  <a href="Wk6_Ethics.html">Week 6</a>
 </li>
 <li>
-  <a href="Wk7_CL.html">Week 7: Corpus Linguistics</a>
+  <a href="Wk7_CL.html">Week 7</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -346,22 +287,48 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
 <h1 class="title toc-ignore">SLAT7806: Research Methods</h1>
 <h4 class="author">Martin Schweinberger</h4>
-<h4 class="date">2021-10-26</h4>
+<h4 class="date">2021-10-29</h4>
 
 </div>
 
 
 <p><img src="https://slcladal.github.io/images/uq1.jpg" width="100%" /></p>
-<div id="introduction" class="section level1">
+<div id="introduction" class="section level1 unnumbered">
 <h1>Introduction</h1>
+<p>This is a postgraduate-level course on academic research methods in language and culture studies, with a particular focus on the areas of language use, learning, and teaching. The course covers a wide variety of issues and topics raised in current and seminal works on language acquisition across ages, in different communities, in and out of the classroom context. It is designed to familiarize the students with a range of qualitative and quantitative research techniques and ethical research practices. The students are also introduced to the core steps of conceptualizing, designing, undertaking, and presenting (orally and in writing) a research project, which are the essential skills for postgraduate students and academics.</p>
 <p>The course consists of 1-hour lectures and 2-hour tutorials. The lecture introduces a topic and the topic is then expanded upon and tackled practically in the tutorials. To pass this course, students need to take weekly pre-class quizzes that test the content of the readings and the lecture (50%). In addition, the students will have to submit a project proposal in which they describe a research project. Furthermore, students have to either submit a video of a presentation of the project proposal or present the project proposal in the last tutorial (10%).</p>
-<template id="99474539-e7e1-4c01-9a08-0fcc719a896d"><style>
+</div>
+<div id="course-aims" class="section level1 unnumbered">
+<h1>Course Aims</h1>
+<p>The course aims to introduce research methodology in language and culture studies (with a particular interest in language). It will present the fundamental skills needed to plan and carry out various types of postgraduate research, ranging from critical reading, to structuring course papers and dissertation, to basic practical data collection and analysis tools and techniques. Topics examined include the nature and types of research, research quality and planning, honesty and ethics in research, library and database searches, developing a research topic and literature review, preparing a research proposal, and critical reading and writing skills. Course assessments will provide the opportunity to apply these skills in relevant research tasks.</p>
+</div>
+<div id="course-changes-in-response-to-feedback" class="section level1 unnumbered">
+<h1>Course Changes in Response to Feedback</h1>
+<p>Weekly Online Tasks, to be completed in the first half of the semester via Blackboard, start only in week 3 to prevent disadvantages to students who sign up for the course after the orientation period.</p>
+<p>The maximum time allotted for completion of each weekly task has been increased from 1 hour to 1 hour and 15 minutes.</p>
+</div>
+<div id="teaching-staff" class="section level1 unnumbered">
+<h1>Teaching staff</h1>
+<p>Course Coordinator: <a href="https://languages-cultures.uq.edu.au/profile/4295/martin-schweinberger">Dr Martin Schweinberger</a> (email: m.schweinberger@uq.edu.au)</p>
+</div>
+<div id="office-hours" class="section level1 unnumbered">
+<h1>Office hours</h1>
+<p>We have a weekly drop-in session that you can attend to ask questions and discuss issues.</p>
+</div>
+<div id="assumed-background" class="section level1 unnumbered">
+<h1>Assumed Background</h1>
+<p>This course assumes no previous knowledge of research methods, but some knowledge of general and applied linguistics will be useful.</p>
+</div>
+<div id="course-timetable" class="section level1 unnumbered">
+<h1>Course Timetable</h1>
+<p>There may be minor changes to the learning activities schedule due to, e.g., public holidays. Students will be advised of any changes in advance. Dates and times for make-up classes are made available to students in advance via Blackboard.</p>
+<template id="19ac09bd-c17f-4097-8aed-32cb9665b36c"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -395,11 +362,15 @@ $(document).ready(function () {
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-6a9f2148{}.cl-6a94c14e{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6a94c14f{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6a94e840{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6a94e841{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6a95369c{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95369d{width:210.7pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95369e{width:182pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95369f{width:248.6pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a9536a0{width:49.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a9536a1{width:248.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a9536a2{width:182pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a9536a3{width:210.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a9536a4{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a9536a5{width:210.7pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a9536a6{width:182pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d2a{width:248.6pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d2b{width:49.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d2c{width:210.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d2d{width:182pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d2e{width:248.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d2f{width:248.6pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d30{width:182pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d31{width:210.7pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d32{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d33{width:49.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a955d34{width:210.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95841c{width:182pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95841d{width:248.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95841e{width:182pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95841f{width:210.7pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a958420{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a958421{width:248.6pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a958422{width:49.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a958423{width:210.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a958424{width:182pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a958425{width:248.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a958426{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95ab0e{width:210.7pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95ab0f{width:182pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95ab10{width:248.6pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95ab11{width:248.6pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95ab12{width:182pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95ab13{width:210.7pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6a95ab14{width:49.3pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-6a9f2148'><caption class="Table Caption">Course plan for SLAT7806</caption><thead><tr style="overflow-wrap:break-word;"><td class="cl-6a95ab14"><p class="cl-6a94e840"><span class="cl-6a94c14e">Week</span></p></td><td class="cl-6a95ab12"><p class="cl-6a94e841"><span class="cl-6a94c14e">Topic</span></p></td><td class="cl-6a95ab11"><p class="cl-6a94e841"><span class="cl-6a94c14e">Reading</span></p></td><td class="cl-6a95ab13"><p class="cl-6a94e841"><span class="cl-6a94c14e">url</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-6a95369c"><p class="cl-6a94e840"><span class="cl-6a94c14f">1</span></p></td><td class="cl-6a95369e"><p class="cl-6a94e841"><span class="cl-6a94c14f">Introduction and overview</span></p></td><td class="cl-6a95369f"><p class="cl-6a94e841"><span class="cl-6a94c14f">ECP</span></p></td><td class="cl-6a95369d"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a955d33"><p class="cl-6a94e840"><span class="cl-6a94c14f">2</span></p></td><td class="cl-6a95841c"><p class="cl-6a94e841"><span class="cl-6a94c14f">What is science?</span></p></td><td class="cl-6a95841d"><p class="cl-6a94e841"><span class="cl-6a94c14f">LADAL: Introduction to Quantitative Reasoning</span></p></td><td class="cl-6a955d34"><p class="cl-6a94e841"><span class="cl-6a94c14f">https://slcladal.github.io/introquant.html</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a958420"><p class="cl-6a94e840"><span class="cl-6a94c14f">3</span></p></td><td class="cl-6a95841e"><p class="cl-6a94e841"><span class="cl-6a94c14f">Basic concepts in science</span></p></td><td class="cl-6a958421"><p class="cl-6a94e841"><span class="cl-6a94c14f">LADAL: Basic Concepts in Science</span></p></td><td class="cl-6a95841f"><p class="cl-6a94e841"><span class="cl-6a94c14f">https://slcladal.github.io/bsicquant.html</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a955d2b"><p class="cl-6a94e840"><span class="cl-6a94c14f">4</span></p></td><td class="cl-6a955d2d"><p class="cl-6a94e841"><span class="cl-6a94c14f">Desinging a research project</span></p></td><td class="cl-6a955d2e"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td><td class="cl-6a955d2c"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a958420"><p class="cl-6a94e840"><span class="cl-6a94c14f">5</span></p></td><td class="cl-6a95841e"><p class="cl-6a94e841"><span class="cl-6a94c14f">Finding literature and referencing</span></p></td><td class="cl-6a958421"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td><td class="cl-6a95841f"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a955d2b"><p class="cl-6a94e840"><span class="cl-6a94c14f">6</span></p></td><td class="cl-6a955d2d"><p class="cl-6a94e841"><span class="cl-6a94c14f">Academic integrity</span></p></td><td class="cl-6a955d2e"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td><td class="cl-6a955d2c"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a958420"><p class="cl-6a94e840"><span class="cl-6a94c14f">7</span></p></td><td class="cl-6a95841e"><p class="cl-6a94e841"><span class="cl-6a94c14f">Corpus linguistics</span></p></td><td class="cl-6a958421"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td><td class="cl-6a95841f"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a958422"><p class="cl-6a94e840"><span class="cl-6a94c14f">8</span></p></td><td class="cl-6a958424"><p class="cl-6a94e841"><span class="cl-6a94c14f">Qualitative research</span></p></td><td class="cl-6a958425"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td><td class="cl-6a958423"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a958426"><p class="cl-6a94e840"><span class="cl-6a94c14f">9</span></p></td><td class="cl-6a95ab0f"><p class="cl-6a94e841"><span class="cl-6a94c14f">Quantitative research</span></p></td><td class="cl-6a95ab10"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td><td class="cl-6a95ab0e"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a9536a0"><p class="cl-6a94e840"><span class="cl-6a94c14f">10</span></p></td><td class="cl-6a9536a2"><p class="cl-6a94e841"><span class="cl-6a94c14f">Experiments and questionnaires</span></p></td><td class="cl-6a9536a1"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td><td class="cl-6a9536a3"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a9536a4"><p class="cl-6a94e840"><span class="cl-6a94c14f">11</span></p></td><td class="cl-6a9536a6"><p class="cl-6a94e841"><span class="cl-6a94c14f">Writing up research</span></p></td><td class="cl-6a955d2a"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td><td class="cl-6a9536a5"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a955d2b"><p class="cl-6a94e840"><span class="cl-6a94c14f">12</span></p></td><td class="cl-6a955d2d"><p class="cl-6a94e841"><span class="cl-6a94c14f">Analyzing speech</span></p></td><td class="cl-6a955d2e"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td><td class="cl-6a955d2c"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6a955d32"><p class="cl-6a94e840"><span class="cl-6a94c14f">13</span></p></td><td class="cl-6a955d30"><p class="cl-6a94e841"><span class="cl-6a94c14f">Recap and student presentations</span></p></td><td class="cl-6a955d2f"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td><td class="cl-6a955d31"><p class="cl-6a94e841"><span class="cl-6a94c14f"></span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="7fbf3462-9a91-454a-9ca7-de97fe63eb32"></div>
+</style><div class="tabwid"><style>.cl-199d3298{}.cl-199485d0{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-199485d1{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1994acc2{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1994acc3{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1994fab0{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1994fab1{width:202.1pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1994fab2{width:364.8pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1994fab3{width:274.9pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1994fab4{width:49.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1994fab5{width:274.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1994fab6{width:364.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1994fab7{width:202.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1994fab8{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1994fab9{width:202.1pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1994faba{width:364.8pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521a2{width:274.9pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521a3{width:274.9pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521a4{width:364.8pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521a5{width:202.1pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521a6{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521a7{width:364.8pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521a8{width:202.1pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521a9{width:49.3pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521aa{width:274.9pt;background-color:rgba(239, 239, 239, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521ab{width:274.9pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-199521ac{width:364.8pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-19954894{width:202.1pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-19954895{width:49.3pt;background-color:rgba(207, 207, 207, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-199d3298'>
+<caption class="Table Caption">
+<p>Course plan for SLAT7806</p>
+</caption>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-19954895"><p class="cl-1994acc2"><span class="cl-199485d0">Week</span></p></td><td class="cl-19954894"><p class="cl-1994acc3"><span class="cl-199485d0">Topic</span></p></td><td class="cl-199521ab"><p class="cl-1994acc3"><span class="cl-199485d0">Reading</span></p></td><td class="cl-199521ac"><p class="cl-1994acc3"><span class="cl-199485d0">Recommended</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1994fab0"><p class="cl-1994acc2"><span class="cl-199485d1">1</span></p></td><td class="cl-1994fab1"><p class="cl-1994acc3"><span class="cl-199485d1">Introduction and overview</span></p></td><td class="cl-1994fab3"><p class="cl-1994acc3"><span class="cl-199485d1">ECP</span></p></td><td class="cl-1994fab2"><p class="cl-1994acc3"><span class="cl-199485d1"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1994fab4"><p class="cl-1994acc2"><span class="cl-199485d1">2</span></p></td><td class="cl-1994fab7"><p class="cl-1994acc3"><span class="cl-199485d1">What is research?</span></p></td><td class="cl-1994fab5"><p class="cl-1994acc3"><span class="cl-199485d1">Course website: Introduction to Scientific Reasoning</span></p></td><td class="cl-1994fab6"><p class="cl-1994acc3"><span class="cl-199485d1"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-199521a9"><p class="cl-1994acc2"><span class="cl-199485d1">3</span></p></td><td class="cl-199521a8"><p class="cl-1994acc3"><span class="cl-199485d1">Basic concepts in research</span></p></td><td class="cl-199521aa"><p class="cl-1994acc3"><span class="cl-199485d1">Course website: Basic Concepts in Research</span></p></td><td class="cl-199521a7"><p class="cl-1994acc3"><span class="cl-199485d1"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1994fab4"><p class="cl-1994acc2"><span class="cl-199485d1">4</span></p></td><td class="cl-1994fab7"><p class="cl-1994acc3"><span class="cl-199485d1">Desinging a research project</span></p></td><td class="cl-1994fab5"><p class="cl-1994acc3"><span class="cl-199485d1">Blaxter, Hughes, and Tight (2010: 134–154)</span></p></td><td class="cl-1994fab6"><p class="cl-1994acc3"><span class="cl-199485d1"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1994fab8"><p class="cl-1994acc2"><span class="cl-199485d1">5</span></p></td><td class="cl-1994fab9"><p class="cl-1994acc3"><span class="cl-199485d1">Finding literature and referencing</span></p></td><td class="cl-199521a2"><p class="cl-1994acc3"><span class="cl-199485d1">Blaxter, Hughes, and Tight (2010: 99–133)</span></p></td><td class="cl-1994faba"><p class="cl-1994acc3"><span class="cl-199485d1"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1994fab4"><p class="cl-1994acc2"><span class="cl-199485d1">6</span></p></td><td class="cl-1994fab7"><p class="cl-1994acc3"><span class="cl-199485d1">Academic integrity</span></p></td><td class="cl-1994fab5"><p class="cl-1994acc3"><span class="cl-199485d1">Podesva and Sharma (2014: 11-26)</span></p></td><td class="cl-1994fab6"><p class="cl-1994acc3"><span class="cl-199485d1"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1994fab8"><p class="cl-1994acc2"><span class="cl-199485d1">7</span></p></td><td class="cl-1994fab9"><p class="cl-1994acc3"><span class="cl-199485d1">Corpus linguistics</span></p></td><td class="cl-199521a2"><p class="cl-1994acc3"><span class="cl-199485d1">Stefanowitsch (2020: 21-59)</span></p></td><td class="cl-1994faba"><p class="cl-1994acc3"><span class="cl-199485d1">Mackey and Gass (2012: 7-30), Podesva and Sharma (2014: 257-287)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1994fab4"><p class="cl-1994acc2"><span class="cl-199485d1">8</span></p></td><td class="cl-1994fab7"><p class="cl-1994acc3"><span class="cl-199485d1">Qualitative research</span></p></td><td class="cl-1994fab5"><p class="cl-1994acc3"><span class="cl-199485d1">Mackey and Gass (2012: 180-201)</span></p></td><td class="cl-1994fab6"><p class="cl-1994acc3"><span class="cl-199485d1">Podesva and Sharma (2014: 460-493)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1994fab8"><p class="cl-1994acc2"><span class="cl-199485d1">9</span></p></td><td class="cl-1994fab9"><p class="cl-1994acc3"><span class="cl-199485d1">Quantitative research</span></p></td><td class="cl-199521a2"><p class="cl-1994acc3"><span class="cl-199485d1">Mackey and Gass (2012: 245-274)</span></p></td><td class="cl-1994faba"><p class="cl-1994acc3"><span class="cl-199485d1">Podesva and Sharma (2014: 288-336)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1994fab4"><p class="cl-1994acc2"><span class="cl-199485d1">10</span></p></td><td class="cl-1994fab7"><p class="cl-1994acc3"><span class="cl-199485d1">Experiments, interviews, and surveys</span></p></td><td class="cl-1994fab5"><p class="cl-1994acc3"><span class="cl-199485d1">Mackey and Gass (2012: 74-94)</span></p></td><td class="cl-1994fab6"><p class="cl-1994acc3"><span class="cl-199485d1">Podesva and Sharma (2014: 96-134)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1994fab8"><p class="cl-1994acc2"><span class="cl-199485d1">11</span></p></td><td class="cl-1994fab9"><p class="cl-1994acc3"><span class="cl-199485d1">Writing up research</span></p></td><td class="cl-199521a2"><p class="cl-1994acc3"><span class="cl-199485d1">Blaxter, Hughes, and Tight (2010: 250-279)</span></p></td><td class="cl-1994faba"><p class="cl-1994acc3"><span class="cl-199485d1"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1994fab4"><p class="cl-1994acc2"><span class="cl-199485d1">12</span></p></td><td class="cl-1994fab7"><p class="cl-1994acc3"><span class="cl-199485d1">Analyzing discourse and speech</span></p></td><td class="cl-1994fab5"><p class="cl-1994acc3"><span class="cl-199485d1">Krug, Schlüter, and Schluter (2013: 244-259)</span></p></td><td class="cl-1994fab6"><p class="cl-1994acc3"><span class="cl-199485d1"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-199521a6"><p class="cl-1994acc2"><span class="cl-199485d1">13</span></p></td><td class="cl-199521a5"><p class="cl-1994acc3"><span class="cl-199485d1">Recap and student presentations</span></p></td><td class="cl-199521a3"><p class="cl-1994acc3"><span class="cl-199485d1"></span></p></td><td class="cl-199521a4"><p class="cl-1994acc3"><span class="cl-199485d1"></span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="84ecd545-1a50-49cd-a01c-2a8234267a23"></div>
 <script>
-var dest = document.getElementById("7fbf3462-9a91-454a-9ca7-de97fe63eb32");
-var template = document.getElementById("99474539-e7e1-4c01-9a08-0fcc719a896d");
+var dest = document.getElementById("84ecd545-1a50-49cd-a01c-2a8234267a23");
+var template = document.getElementById("19ac09bd-c17f-4097-8aed-32cb9665b36c");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -413,54 +384,60 @@ fantome.appendChild(templateContent);
 </script>
 
 </div>
-<div id="course-plan" class="section level1">
-<h1>Course plan</h1>
+<div id="literature" class="section level1">
+<h1>Literature</h1>
+<p>The required reading for this course are come from the <span class="citation">Blaxter, Hughes, and Tight (<a href="#ref-blaxter2010research" role="doc-biblioref">2010</a>)</span>, <span class="citation">Podesva and Sharma (<a href="#ref-podesva2014research" role="doc-biblioref">2014</a>)</span>, <span class="citation">Mackey and Gass (<a href="#ref-mackey2011research" role="doc-biblioref">2012</a>)</span>, <span class="citation">Krug, Schlüter, and Schluter (<a href="#ref-krug2013research" role="doc-biblioref">2013</a>)</span>, and <span class="citation">Stefanowitsch (<a href="#ref-stefanowitsch2020corpus" role="doc-biblioref">2020</a>)</span>.</p>
+</div>
+<div id="learning-activities" class="section level1 unnumbered">
+<h1>Learning Activities</h1>
 <div id="week-1-introduction-and-overview" class="section level2">
 <h2>Week 1: Introduction and overview</h2>
 <p>Lecture: basic information about the course (ECP, Assessments)</p>
 <p>Tutorial: why do we need the scientific method and how does it work?</p>
+<p>Reading: ECP</p>
 </div>
-<div id="week-2-conceptualizing-a-research-project" class="section level2">
-<h2>Week 2: Conceptualizing a research project</h2>
+<div id="week-2-what-is-research" class="section level2">
+<h2>Week 2: What is research?</h2>
 <p>Lecture: Podcast + Slides</p>
 <ul>
 <li><p>Scientific circle</p></li>
 <li><p>Research question</p></li>
 </ul>
 <p>Tutorial: the research process, scientific circle,</p>
+<p>Reading:</p>
 </div>
-<div id="week-3-desinging-a-research-project" class="section level2">
-<h2>Week 3: Desinging a research project</h2>
+<div id="week-3-basic-concepts-in-research" class="section level2">
+<h2>Week 3: Basic concepts in research</h2>
 <p>Lecture: Podcast + Slides</p>
 <p>Tutorial:</p>
 </div>
-<div id="week-4-qualitative-research" class="section level2">
-<h2>Week 4: Qualitative research</h2>
+<div id="week-4-desinging-a-research-project" class="section level2">
+<h2>Week 4: Desinging a research project</h2>
 <p>Lecture: Podcast + Slides</p>
 <p>Tutorial:</p>
 </div>
-<div id="week-5-quantitative-research" class="section level2">
-<h2>Week 5: Quantitative research</h2>
+<div id="week-5-finding-literature-and-referencing" class="section level2">
+<h2>Week 5: Finding literature and referencing</h2>
 <p>Lecture: Podcast + Slides</p>
 <p>Tutorial: example data set - practical task: describing and visualizing data in JASP</p>
 </div>
-<div id="week-6-data-analysis" class="section level2">
-<h2>Week 6: Data Analysis</h2>
+<div id="week-6-academic-integrity" class="section level2">
+<h2>Week 6: Academic integrity</h2>
 <p>Lecture: Podcast + Slides</p>
 <p>Tutorial: example data set - practical task: performing tests with JASP</p>
 </div>
-<div id="week-7-writing-up-research" class="section level2">
-<h2>Week 7: Writing up research</h2>
+<div id="week-7-corpus-linguistics" class="section level2">
+<h2>Week 7: Corpus linguistics</h2>
 <p>Lecture: Podcast + Slides</p>
 <p>Tutorial: Features of academic English, structure of research paper, referencing and citation</p>
 </div>
-<div id="week-8-academic-integrity" class="section level2">
-<h2>Week 8: Academic integrity</h2>
+<div id="week-8-qualitative-research" class="section level2">
+<h2>Week 8: Qualitative research</h2>
 <p>Lecture: Podcast + Slides</p>
 <p>Tutorial:</p>
 </div>
-<div id="week-9-analyzing-language-in-context" class="section level2">
-<h2>Week 9: Analyzing language in context</h2>
+<div id="week-9-quantitative-research" class="section level2">
+<h2>Week 9: Quantitative research</h2>
 <p>Lecture: Podcast + Slides</p>
 <ul>
 <li><p>Sociolinguistics</p></li>
@@ -468,8 +445,8 @@ fantome.appendChild(templateContent);
 </ul>
 <p>Tutorial:</p>
 </div>
-<div id="week-10-analyzing-speech" class="section level2">
-<h2>Week 10: Analyzing speech</h2>
+<div id="week-10-experiments-interviews-and-surveys" class="section level2">
+<h2>Week 10: Experiments, interviews, and surveys</h2>
 <p>Lecture: Podcast + Slides</p>
 <ul>
 <li><p>Phonetics</p></li>
@@ -477,16 +454,16 @@ fantome.appendChild(templateContent);
 </ul>
 <p>Tutorial:</p>
 </div>
-<div id="week-11-bilingualism-research" class="section level2">
-<h2>Week 11: Bilingualism research</h2>
+<div id="week-11-writing-up-research" class="section level2">
+<h2>Week 11: Writing up research</h2>
 <p>Lecture: Podcast + Slides</p>
 <ul>
 <li>Bilingualim</li>
 </ul>
 <p>Tutorial:</p>
 </div>
-<div id="week-12-corpus-based-research" class="section level2">
-<h2>Week 12: Corpus-based research</h2>
+<div id="week-12-analyzing-discourse-and-speech" class="section level2">
+<h2>Week 12: Analyzing discourse and speech</h2>
 <p>Lecture: Podcast + Slides</p>
 <ul>
 <li><p>Corpora</p></li>
@@ -503,39 +480,22 @@ fantome.appendChild(templateContent);
 <div id="assessment" class="section level1">
 <h1>Assessment</h1>
 <p>To pass this course, students need to pass three main assessments.</p>
-<ul>
-<li><p>Quizzes: students need to take <strong>weekly pre-class quizzes</strong> that test the content of the readings and the lecture. The quizzes will be multiple choice, or fill-in-the-gaps kind of questions. There will be 10 quizzes, each counting 5% of the overall course grade (10 x 5 = <strong>50%</strong>).</p></li>
-<li><p>Project: students will have to submit a <strong>project proposal</strong> in which they describe a research project. (<strong>40%</strong>)</p></li>
-<li><p>Presentations: students have to <strong>present their project proposal</strong> in the last tutorial. Students can either submit a video of the presentation of their project proposal or present in class (if possible). (<strong>10%</strong>)</p></li>
-</ul>
+<div id="quizzes" class="section level2 unnumbered">
+<h2>Quizzes</h2>
+<p>Students need to take <strong>weekly pre-class quizzes</strong> that test the content of the readings and the lecture. The quizzes will be multiple choice, or fill-in-the-gaps kind of questions. There will be 10 quizzes, each counting 5% of the overall course grade (10 x 5 = <strong>50%</strong>).</p>
 </div>
-<div id="materials" class="section level1">
-<h1>Materials</h1>
-<p><strong>Quizzes</strong></p>
-<p>Availability, closing and scoring | marking will be automated on Blackboard</p>
-<ul>
-<li>Week 3 (there will be two quizzes - a regular one and an additional one for late comers to the course)</li>
-<li>Week 4</li>
-<li>Week 5<br />
-</li>
-<li>Week 6<br />
-</li>
-<li>Week 7<br />
-</li>
-<li>Week 8<br />
-</li>
-<li>Week 9<br />
-</li>
-<li>Week 10<br />
-</li>
-<li>Week 11<br />
-</li>
-<li>Week 12</li>
-</ul>
+<div id="project" class="section level2 unnumbered">
+<h2>Project</h2>
+<p>Students will have to submit a <strong>project proposal</strong> in which they describe a research project. (<strong>40%</strong>)</p>
+</div>
+<div id="presentations" class="section level2 unnumbered">
+<h2>Presentations</h2>
+<p>Students have to <strong>present their project proposal</strong> in the last tutorial. Students can either submit a video of the presentation of their project proposal or present in class (if possible). (<strong>10%</strong>)</p>
+</div>
 </div>
 <div id="citation-session-info" class="section level1 unnumbered">
 <h1>Citation &amp; Session Info</h1>
-<p>Schweinberger, Martin. 2021. <em>SLAT7806: Research Methods</em>. Brisbane: The University of Queensland. url: <a href="https://slcladal.github.io/basicquant.html" class="uri">https://slcladal.github.io/basicquant.html</a> (Version 2021.10.26).</p>
+<p>Schweinberger, Martin. 2021. <em>SLAT7806: Research Methods</em>. Brisbane: The University of Queensland. url: <a href="https://slcladal.github.io/basicquant.html" class="uri">https://slcladal.github.io/basicquant.html</a> (Version 2021.10.29).</p>
 <pre><code>@manual{schweinberger2021slat7806,
   author = {Schweinberger, Martin},
   title = {SLAT7806: Research Methods},
@@ -543,7 +503,7 @@ fantome.appendChild(templateContent);
   year = {2021},
   organization = &quot;The University of Queensland, Australia. School of Languages and Cultures},
   address = {Brisbane},
-  edition = {2021.10.26}
+  edition = {2021.10.29}
 }</code></pre>
 <hr />
 <p><a href="#introduction">Back to top</a></p>
@@ -551,6 +511,23 @@ fantome.appendChild(templateContent);
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-blaxter2010research">
+<p>Blaxter, Loraine, Christina Hughes, and Malcolm Tight. 2010. <em>How to Research</em>. Maidenhead, UK: McGraw-Hill Education.</p>
+</div>
+<div id="ref-krug2013research">
+<p>Krug, Manfred, Julia Schlüter, and Julia Schluter. 2013. <em>Research Methods in Language Variation and Change</em>. Cambridge: Cambridge University Press.</p>
+</div>
+<div id="ref-mackey2011research">
+<p>Mackey, Alison, and Susan M Gass. 2012. <em>Research Methods in Second Language Acquisition: A Practical Guide</em>. John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-podesva2014research">
+<p>Podesva, Robert J, and Devyani Sharma. 2014. <em>Research Methods in Linguistics</em>. Cambridge: Cambridge University Press.</p>
+</div>
+<div id="ref-stefanowitsch2020corpus">
+<p>Stefanowitsch, Anatol. 2020. <em>Corpus Linguistics: A Guide to the Methodology</em>. Language Science Press.</p>
+</div>
+</div>
 </div>
 
 
@@ -580,7 +557,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -597,7 +574,6 @@ $(document).ready(function () {
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
-
 
 </body>
 </html>

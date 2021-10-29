@@ -7,28 +7,32 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-<link rel="icon" 
-      type="image/x-icon" 
-      href="favicon.ico" />
 
 
 <meta name="author" content="" />
 
-<meta name="date" content="2021-10-26" />
+<meta name="date" content="2021-10-29" />
 
 <title>Week 6: Academic integrity</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -40,11 +44,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -57,32 +56,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -93,10 +66,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -113,40 +82,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -174,7 +116,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -186,7 +128,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -197,10 +139,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -212,7 +167,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -265,8 +219,7 @@ $(document).ready(function () {
 
 
 
-<!-- added by SKC for LADAL Style -->
-<link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
@@ -276,20 +229,8 @@ $(document).ready(function () {
 
 
 
+
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  
-  <!-- Added by SKC - LADAL image and thicker top with   -->
-  <div class="container-fluid navbar-top" >
-    <a href="index.html"> <!-- Make entire top row and text clickable home link  -->
-        <div class="row">
-            <div class="navbar-brand col-md-12">
-              <img src="ladal_icon_cas_tran_white_trimed.png" class="navbar-icon" alt="SLAT7806: Research Methods"/>
-              <span class="navbar-title-note navbar-collapse collapse" >Language Technology and Data Analysis Laboratory</span>
-            </div>
-        </div>
-    </a>
-  </div>
-  
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -297,7 +238,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!-- SKC removed  navbar brand -->
+      <a class="navbar-brand" href="index.html">SLAT7806: Research Methods</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -317,25 +258,25 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="Wk1_Intro.html">Week 1: Introduction and overview</a>
+  <a href="Wk1_Intro.html">Week 1</a>
 </li>
 <li>
-  <a href="Wk2_Science.html">Week 2: What is science?</a>
+  <a href="Wk2_Science.html">Week 2</a>
 </li>
 <li>
-  <a href="Wk3_Basics.html">Week 3: Basic concepts</a>
+  <a href="Wk3_Basics.html">Week 3</a>
 </li>
 <li>
-  <a href="Wk4_Design.html">Week 4: Desinging a research project</a>
+  <a href="Wk4_Design.html">Week 4</a>
 </li>
 <li>
-  <a href="Wk5_Lit.htm">Week 5: Finding literature and referencing</a>
+  <a href="Wk5_Lit.htm">Week 5</a>
 </li>
 <li>
-  <a href="Wk6_Ethics.html">Week 6: Academic integrity</a>
+  <a href="Wk6_Ethics.html">Week 6</a>
 </li>
 <li>
-  <a href="Wk7_CL.html">Week 7: Corpus Linguistics</a>
+  <a href="Wk7_CL.html">Week 7</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -345,12 +286,12 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
 <h1 class="title toc-ignore">Week 6: Academic integrity</h1>
-<h4 class="date">2021-10-26</h4>
+<h4 class="date">2021-10-29</h4>
 
 </div>
 
@@ -381,7 +322,7 @@ $(document).ready(function () {
 </div>
 <div id="citation-session-info" class="section level1 unnumbered">
 <h1>Citation &amp; Session Info</h1>
-<p>Schweinberger, Martin. 2021. <em>SLAT7806: Research Methods</em>. Brisbane: The University of Queensland. url: <a href="https://slcladal.github.io/basicquant.html" class="uri">https://slcladal.github.io/basicquant.html</a> (Version 2021.10.26).</p>
+<p>Schweinberger, Martin. 2021. <em>SLAT7806: Research Methods</em>. Brisbane: The University of Queensland. url: <a href="https://slcladal.github.io/basicquant.html" class="uri">https://slcladal.github.io/basicquant.html</a> (Version 2021.10.29).</p>
 <pre><code>@manual{schweinberger2021slat7806,
   author = {Schweinberger, Martin},
   title = {SLAT7806: Research Methods},
@@ -389,7 +330,7 @@ $(document).ready(function () {
   year = {2021},
   organization = &quot;The University of Queensland, Australia. School of Languages and Cultures},
   address = {Brisbane},
-  edition = {2021.10.26}
+  edition = {2021.10.29}
 }</code></pre>
 <hr />
 <p><a href="#introduction">Back to top</a></p>
@@ -426,7 +367,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -443,7 +384,6 @@ $(document).ready(function () {
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
-
 
 </body>
 </html>
