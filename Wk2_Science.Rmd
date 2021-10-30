@@ -485,7 +485,7 @@ knitr::include_graphics("https://slcladal.github.io/images/scientificcircle.png"
 Which varieties of science are there?
 
 * **Empirical Science(s)**
-examine phenomena of reality through the scientific method (cf.), with the aim of explaining and / or predicting them (for example, functional linguistics, biology, astronomy, sociology, ...).
+examine phenomena of reality through the scientific method, with the aim of explaining and / or predicting them (for example, functional linguistics, biology, astronomy, sociology, ...).
 
 * **Formal Science(s)**
 examine systems of abstract constructs using axiomatically set or derived rules (for example, mathematics, formal logic, theoretical computer science, system theory, chaos theory, formal linguistics, ...).
@@ -554,10 +554,6 @@ Schweinberger, Martin. `r format(Sys.time(), '%Y')`. *Introduction to Quantitati
   address = {Brisbane},
   edition = {`r format(Sys.time(), '%Y.%m.%d')`}
 }
-```
-
-```{r fin}
-sessionInfo()
 ```
 
 ***

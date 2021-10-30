@@ -35,7 +35,7 @@ Weekly Online Tasks, to be completed in the first half of the semester via Black
 
 The maximum time allotted for completion of each weekly task has been increased from 1 hour to 1 hour and 15 minutes.
 
-# Teaching staff{-}
+**Teaching staff**
 
 Course Coordinator: [Dr Martin Schweinberger](https://languages-cultures.uq.edu.au/profile/4295/martin-schweinberger) (email: m.schweinberger\@uq.edu.au)
 
@@ -122,11 +122,11 @@ To pass this course, students need to pass the following assessments.
 
 **Weight**: 20%
 
-Students need to take **weekly pre-class quizzes** that test the content of the readings. The quizzes will be multiple choice, short-answer questions, or fill-in-the-gaps kind of questions. There will be 8 quizzes (starting in week 3), each counting 2.5% of the overall course grade (8 x 2.5 = **24%**).
+Students need to take **weekly pre-class quizzes** that test the content of the readings. The quizzes will be multiple choice, short-answer questions, or fill-in-the-gaps kind of questions. There will be 8 quizzes (starting in week 3), each counting 2.5% of the overall course grade (10 x 2 = **20%**).
 
-**Task Description**: This assessment consists of 8 online quizzes, made available via the course Blackboard site of weeks 3-12. Each quiz will be open until 5pm on Monday of the next week. Students will have 1 hour and only one attempt to complete each quiz. The quizzes will mostly consist of multiple choice and short answer questions; however, other types of questions may also be included and there will be at least one open-ended question per quiz. The purpose of these quizzes is to check students' understanding of the course content in a continuous, uninterrupted manner. Additionally, students will be required to apply what they have learned in readings, lectures, and tutorials each week to new research examples. Through completion of the weekly quizzes, students get rapid feedback on their performance in the course and gain exposure to a wide range of research studies and published work, which will facilitate writing their Research Proposal.
+**Task Description**: This assessment consists of 10 online quizzes, made available via the course Blackboard site of weeks 3-12. Each quiz will be open until 5pm on Monday of the next week. Students will have 1 hour and only one attempt to complete each quiz. The quizzes will mostly consist of multiple choice and short answer questions; however, other types of questions may also be included and there will be at least one open-ended question per quiz. The purpose of these quizzes is to check students' understanding of the course content in a continuous, uninterrupted manner. Additionally, students will be required to apply what they have learned in readings, lectures, and tutorials each week to new research examples. Through completion of the weekly quizzes, students get rapid feedback on their performance in the course and gain exposure to a wide range of research studies and published work, which will facilitate writing their Research Proposal.
 
-If you are unable to participate, consult 5.3 Late Submission.
+If you are unable to participate, consult 5.3 Late Submission in the ECP.
 
 **Criteria & Marking**: Each question in a weekly online quiz will be assigned a particular point value, with the maximum possible amount of points awarded for each online quiz being 20. Failure to complete a quiz equals 0 points. After all five quizzes, the students' average quiz score will be calculated (please note: quizzes that were not completed and thus awarded 0 points are included in the average calculations) and this average will constitute their final grade for this assessment.
 
@@ -275,19 +275,19 @@ To understand the acceptable reasons for an extension and the evidence you must 
 
 [Here](https://my.uq.edu.au/information-and-services/manage-my-program/exams-and-assessment/applying-extension?p=1#1) is more information on the grounds for extensions and the required documents
 
-** Applying for an extension**
+**Applying for an extension**
 
 If you need an extension because you cannot submit an assessment in time, you will have to formally apply for an extension (see [here](https://my.uq.edu.au/information-and-services/manage-my-program/exams-and-assessment/applying-extension)).
  
 # Citation & Session Info {-}
 
-Schweinberger, Martin. `r format(Sys.time(), '%Y')`. *SLAT7806: Research Methods*. Brisbane: The University of Queensland. url: https://slcladal.github.io/basicquant.html   (Version `r format(Sys.time(), '%Y.%m.%d')`).
+Schweinberger, Martin. `r format(Sys.time(), '%Y')`. *SLAT7806: Research Methods*. Brisbane: The University of Queensland. url: https://slcladal.github.io/slat7806.html   (Version `r format(Sys.time(), '%Y.%m.%d')`).
 
 ```
 @manual{schweinberger2021slat7806,
   author = {Schweinberger, Martin},
   title = {SLAT7806: Research Methods},
-  note = {https://slcladal.github.io/basicquant.html},
+  note = {https://slcladal.github.io/slat7806.html},
   year = {`r format(Sys.time(), '%Y')`},
   organization = "The University of Queensland, Australia. School of Languages and Cultures},
   address = {Brisbane},
